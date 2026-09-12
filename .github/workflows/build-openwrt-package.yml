@@ -65,6 +65,12 @@ jobs:
           yes '1' | make oldconfig || true
           grep -E 'QAT_C2XXX|quickassist-c2xxx|openssl-qat|kmod-crypto-qat' .config
 
+      - name: Find the openssl package path
+        working-directory: ${{ env.SDK_DIR }}
+        run: |
+          find . -maxdepth 4 -type d -iname openssl
+          grep -rl "^PKG_NAME:=openssl$" package --include=Makefile 2>/dev/null || true
+
       - name: Build openssl (dependency, staged headers/libs for quickassist-c2xxx)
         working-directory: ${{ env.SDK_DIR }}
         run: make package/openssl/{compile,install} -j"$(nproc)" V=s
