@@ -50,7 +50,12 @@ jobs:
         run: |
           ./scripts/feeds update -a
           ./scripts/feeds install -a
-          make package/symlinks
+
+      - name: Copy openssl from the base feed checkout into package/
+        working-directory: ${{ env.SDK_DIR }}
+        run: |
+          mkdir -p package/libs
+          cp -r feeds/base_root/package/libs/openssl package/libs/openssl
 
       - name: Configure (enable quickassist-c2xxx + openssl-qat)
         working-directory: ${{ env.SDK_DIR }}
@@ -67,20 +72,9 @@ jobs:
           grep -E 'QAT_C2XXX|quickassist-c2xxx|openssl-qat|kmod-crypto-qat' .config
 
 
-      - name: Check if openssl is already staged by the SDK
+      - name: Build openssl (dependency, staged headers/libs for quickassist-c2xxx)
         working-directory: ${{ env.SDK_DIR }}
-        run: |
-          ls staging_dir/target-*/usr/include/openssl/md5.h 2>&1 || true
-          ls -la package/libs/openssl 2>&1 || true
-
-      - name: Build openssl if not already staged
-        working-directory: ${{ env.SDK_DIR }}
-        run: |
-          if ls staging_dir/target-*/usr/include/openssl/md5.h >/dev/null 2>&1; then
-            echo "openssl already staged by the SDK, skipping build"
-          else
-            make package/libs/openssl/{compile,install} -j"$(nproc)" V=s
-          fi
+        run: make package/libs/openssl/{compile,install} -j"$(nproc)" V=s
 
       - name: Build quickassist-c2xxx
         working-directory: ${{ env.SDK_DIR }}
