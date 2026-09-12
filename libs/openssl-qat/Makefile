@@ -46,8 +46,18 @@ endef
 #CONFIGURE_ARGS += --with-openssl_install_dir=$(PKG_INSTALL_DIR)/usr 
 CONFIGURE_ARGS += --prefix=$(PKG_INSTALL_DIR) 
 
-CONFIGURE_ARGS += $(if $(CONFIG_QAT_C3XXX)                            ,--with-qat_dir=$(KERNEL_BUILD_DIR)/quickassist-c3xxx-1.7)
-CONFIGURE_ARGS += $(if $(CONFIG_QAT_C2XXX)                            ,--with-qat_dir=$(KERNEL_BUILD_DIR)/quickassist-c2xxx-1.5)
+# quickassist-c2xxx/c3xxx's PKG_BUILD_DIR is wiped by CONFIG_AUTOREMOVE once
+# that package finishes building, so point at the copy their Build/InstallDev
+# leaves behind in staging_dir (same quickassist/ + build/ layout) instead.
+CONFIGURE_ARGS += $(if $(CONFIG_QAT_C3XXX)                            ,--with-qat_dir=$(STAGING_DIR)/usr/icp)
+CONFIGURE_ARGS += $(if $(CONFIG_QAT_C2XXX)                            ,--with-qat_dir=$(STAGING_DIR)/usr/icp)
+
+# The QAT1.5/c2xxx (Rangeley/Coleto Creek) driver API predates X25519/X448
+# support: its cpa_cy_ec.h has no CpaCyEcMontEdwdsPointMultiplyOpData, so
+# qat_ecx.c's hardware-offload path (guarded by OPENSSL_DISABLE_QAT_ECX)
+# fails to compile against it. Fall back to the software ECX implementation
+# for this driver generation.
+CONFIGURE_ARGS += $(if $(CONFIG_QAT_C2XXX)                            ,--disable-qat_ecx)
 
 CONFIGURE_ARGS += $(if $(CONFIG_QAT_ENGINE_DISABLE_RSA)               ,--disable-qat_rsa)
 CONFIGURE_ARGS += $(if $(CONFIG_QAT_ENGINE_DISABLE_DSA)               ,--disable-qat_dsa)
@@ -66,6 +76,27 @@ CONFIGURE_ARGS += $(if $(CONFIG_QAT_ENGINE_ENABLE_MULTITHREAD)        ,--enable-
 CONFIGURE_ARGS += $(if $(CONFIG_QAT_ENGINE_DISABLE_LENSTRA)           ,--disable-qat_lenstra_protection)
 CONFIGURE_ARGS += $(if $(CONFIG_QAT_ENGINE_DISABLE_AUTOINIT_ONFORK)   ,--disable-qat_auto_engine_init_on_fork)
 CONFIGURE_ARGS += $(if $(CONFIG_QAT_C2XXX)                            ,--enable-qat16_driver)
+
+# configure's out-of-tree default (-lqat_s) assumes the newer QAT2.0-style
+# access-layer library name; our QAT1.5/c2xxx vendor driver builds
+# libicp_qa_al_s.so instead. --with-DRIVER=... can't override this: its
+# AC_ARG_WITH has an empty action-if-given clause, so the flag is accepted
+# but silently has no effect. quickassist-c2xxx's Build/InstallDev instead
+# symlinks libqat_s.so -> libicp_qa_al_s.so so the default name resolves.
+
+# configure's AC_CHECK_FILE(/usr/include/qat/icp_sal_versions.h) probes the
+# build host's filesystem to tell an in-tree kernel QAT driver from an
+# out-of-tree one, which autoconf refuses to do at all when cross compiling.
+# We always use the out-of-tree vendor driver (quickassist-c2xxx /
+# quickassist-c3xxx), so pre-seed the cache variable instead of probing.
+CONFIGURE_VARS += \
+	ac_cv_file__usr_include_qat_icp_sal_versions_h="no"
+
+# The QAT1.5/c2xxx libusdm_drv only exports qaeMemFree(NUMA), not the
+# "NonZero" variants QAT_Engine otherwise calls. Upstream only defines
+# QAT_DISABLE_NONZERO_MEMFREE for its in-tree-driver autodetect path, which
+# we bypass above, so set it explicitly for this out-of-tree driver instead.
+EXTRA_CFLAGS += $(if $(CONFIG_QAT_C2XXX)                              ,-DQAT_DISABLE_NONZERO_MEMFREE)
 
 MAKE_VARS += \
 	CROSS_COMPILE="$(KERNEL_CROSS)" \
