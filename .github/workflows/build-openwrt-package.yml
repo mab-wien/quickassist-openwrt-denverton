@@ -62,6 +62,7 @@ jobs:
         run: |
           make defconfig
           cat >> .config << 'EOF'
+          CONFIG_PACKAGE_libopenssl=y
           CONFIG_QAT_C2XXX=y
           CONFIG_PACKAGE_quickassist-c2xxx=y
           CONFIG_PACKAGE_kmod-crypto-qat-c2xxx=y
