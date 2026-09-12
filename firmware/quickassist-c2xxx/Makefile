@@ -31,7 +31,6 @@ define Package/quickassist-c2xxx
   TITLE:=Intel Quick Assist meta-package for c2xxx
   DEPENDS:= \
   	@TARGET_x86_64 \
-	@LINUX_4_14 \
 	+libopenssl \
 	+kmod-crypto-qat-c2xxx \
 	+kmod-crypto-qat-c2xxx-usdm
@@ -58,7 +57,6 @@ define KernelPackage/crypto-qat-c2xxx
   TITLE:=Intel Quick Assist Technology Drivers
   DEPENDS:= \
 	@TARGET_x86_64 \
-	@LINUX_4_14 \
 	+libc \
 	+libpthread \
 	+libopenssl \
@@ -87,8 +85,7 @@ define KernelPackage/crypto-qat-c2xxx-usdm
   SUBMENU:=Cryptographic API modules
   TITLE:=Quick Assist Pinned Memory Driver
   DEPENDS:= \
-	@TARGET_x86_64 \
-	@LINUX_4_14
+	@TARGET_x86_64
   FILES:=$(PKG_BUILD_DIR)/build/usdm_drv.ko
   AUTOLOAD:=$(call AutoProbe,usdm_drv)
 endef
@@ -124,8 +121,8 @@ define Build/Prepare
 endef
 
 define Build/Compile
+	$(call Build/Compile/Default, -C $(PKG_BUILD_DIR)/quickassist/utilities/libusdm_drv all)
 	$(call Build/Compile/Default)
-	$(call Build/Compile/Default, -C $(PKG_BUILD_DIR)/quickassist/lookaside/access_layer/src/sample_code perf_all)
 endef
 
 define Build/InstallDev
