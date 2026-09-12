@@ -19,11 +19,17 @@ PKG_HASH:=afe8339edbbf05099e79c256191584aabf30b564f89a553b9585b2f8e18bee17
 
 PKG_LICENSE:=GPL v3
 
+# Intel's vendor Makefile lists "clean" and "lac_lib_dir" as unordered
+# sibling prerequisites of "all", so a parallel build can run "clean"
+# (which removes LAC_LIB_DIR) concurrently with targets that create and
+# populate it. PKG_BUILD_PARALLEL must be set before package.mk is
+# included, since that is where PKG_JOBS gets computed.
+PKG_BUILD_PARALLEL:=0
+
 include $(INCLUDE_DIR)/kernel.mk
 include $(INCLUDE_DIR)/package.mk
 
 PKG_BUILD_DIR:=$(KERNEL_BUILD_DIR)/$(PKG_NAME)-$(PKG_VERSION)
-PKG_BUILD_PARALLEL:=0
 
 define Package/quickassist-c2xxx
   SECTION:=firmware
