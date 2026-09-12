@@ -68,8 +68,14 @@ jobs:
       - name: Find the openssl package path
         working-directory: ${{ env.SDK_DIR }}
         run: |
-          find . -maxdepth 4 -type d -iname openssl
-          grep -rl "^PKG_NAME:=openssl$" package --include=Makefile 2>/dev/null || true
+          echo "--- feeds.conf ---"
+          cat feeds.conf
+          echo "--- feed checkouts (top level of feeds/base) ---"
+          ls feeds/base/package 2>&1 | head -30
+          echo "--- any Makefile defining openssl anywhere ---"
+          grep -rl "^PKG_NAME:=openssl$" . --include=Makefile 2>/dev/null
+          echo "--- package/ symlink structure (top 2 levels) ---"
+          find package -maxdepth 2 -type d 2>&1
 
       - name: Build openssl (dependency, staged headers/libs for quickassist-c2xxx)
         working-directory: ${{ env.SDK_DIR }}
