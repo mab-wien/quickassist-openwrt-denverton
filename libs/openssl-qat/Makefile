@@ -104,11 +104,17 @@ MAKE_VARS += \
 	PATH_AUTOCNF="include/generated/autoconf.h" \
 	WITH_ICP_TARGET="1" 
 
+# OpenWrt's libopenssl (3.x) is built with ENGINESDIR=/usr/lib/engines-3
+# (see e.g. libopenssl-afalg/-devcrypto/-padlock, which install there too) -
+# ENGINE_by_id() only searches that path by default. engines-1.1 is a
+# leftover from an OpenSSL 1.1-era assumption and is never searched by an
+# OpenSSL 3.x build, silently breaking ssl_engine qatengine (nginx),
+# --engine qatengine (OpenVPN) and similar at runtime.
 define Package/openssl-qat/install
-	$(INSTALL_DIR) $(1)/usr/lib/engines-1.1
+	$(INSTALL_DIR) $(1)/usr/lib/engines-3
 	$(INSTALL_DIR) $(1)/usr/share/quickassist/QAT_Engine/config
-	$(CP) $(PKG_BUILD_DIR)/.libs/qatengine.so $(1)/usr/lib/engines-1.1
-	$(CP) $(PKG_BUILD_DIR)/qatengine.la $(1)/usr/lib/engines-1.1
+	$(CP) $(PKG_BUILD_DIR)/.libs/qatengine.so $(1)/usr/lib/engines-3
+	$(CP) $(PKG_BUILD_DIR)/qatengine.la $(1)/usr/lib/engines-3
 	$(CP) $(PKG_BUILD_DIR)/qat/config/c3xxx $(1)/usr/share/quickassist/QAT_Engine/config
 endef
 
