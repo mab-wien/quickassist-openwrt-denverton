@@ -79,7 +79,7 @@ jobs:
         if: always()
         run: |
           mkdir -p artifacts
-          find "$SDK_DIR/bin" -iname '*qat*' -exec cp {} artifacts/ \; 2>/dev/null || true
+          find "$SDK_DIR/bin" \( -iname '*qat*' -o -iname 'quickassist*' \) -exec cp {} artifacts/ \; 2>/dev/null || true
           ls -la artifacts/ || true
 
       - uses: actions/upload-artifact@v4
