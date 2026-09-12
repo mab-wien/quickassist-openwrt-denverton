@@ -1,0 +1,88 @@
+name: Build OpenWrt package
+
+on:
+  push:
+    branches: [ '**' ]
+  pull_request:
+    branches: [ '**' ]
+  workflow_dispatch:
+
+env:
+  SDK_URL: https://downloads.openwrt.org/releases/25.12.5/targets/x86/64/openwrt-sdk-25.12.5-x86-64_gcc-14.3.0_musl.Linux-x86_64.tar.zst
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: repo
+
+      - name: Install host build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y build-essential clang flex bison g++ gawk \
+            gcc-multilib g++-multilib gettext git libncurses5-dev libssl-dev \
+            python3-setuptools python3-dev rsync swig unzip zlib1g-dev file wget zstd
+
+      - name: Download and extract OpenWrt SDK
+        run: |
+          curl -fsSL -o sdk.tar.zst "$SDK_URL"
+          tar --use-compress-program=unzstd -xf sdk.tar.zst
+          echo "SDK_DIR=$PWD/$(ls -d openwrt-sdk-*/ | head -1)" >> "$GITHUB_ENV"
+
+      - name: Copy quickassist-c2xxx and openssl-qat into the SDK
+        run: |
+          mkdir -p "$SDK_DIR/package/utils/quickassist-c2xxx"
+          cp -r repo/firmware/quickassist-c2xxx/* "$SDK_DIR/package/utils/quickassist-c2xxx/"
+          mkdir -p "$SDK_DIR/package/libs/openssl-qat"
+          cp -r repo/libs/openssl-qat/* "$SDK_DIR/package/libs/openssl-qat/"
+
+      - name: Trim feeds to what this package actually needs
+        working-directory: ${{ env.SDK_DIR }}
+        run: |
+          grep -E '^src-git (base|packages) ' feeds.conf.default > feeds.conf
+          cat feeds.conf
+
+      - name: Update and install feeds
+        working-directory: ${{ env.SDK_DIR }}
+        run: |
+          ./scripts/feeds update -a
+          ./scripts/feeds install -a
+
+      - name: Configure (enable quickassist-c2xxx + openssl-qat)
+        working-directory: ${{ env.SDK_DIR }}
+        run: |
+          make defconfig
+          cat >> .config << 'EOF'
+          CONFIG_QAT_C2XXX=y
+          CONFIG_PACKAGE_quickassist-c2xxx=y
+          CONFIG_PACKAGE_kmod-crypto-qat-c2xxx=y
+          CONFIG_PACKAGE_kmod-crypto-qat-c2xxx-usdm=y
+          CONFIG_PACKAGE_openssl-qat=y
+          EOF
+          yes '1' | make oldconfig || true
+          grep -E 'QAT_C2XXX|quickassist-c2xxx|openssl-qat|kmod-crypto-qat' .config
+
+      - name: Build quickassist-c2xxx
+        working-directory: ${{ env.SDK_DIR }}
+        run: make package/utils/quickassist-c2xxx/compile -j"$(nproc)" V=s
+
+      - name: Build openssl-qat
+        working-directory: ${{ env.SDK_DIR }}
+        run: make package/libs/openssl-qat/compile -j"$(nproc)" V=s
+
+      - name: Collect built packages
+        if: always()
+        run: |
+          mkdir -p artifacts
+          find "$SDK_DIR/bin" -iname '*qat*' -exec cp {} artifacts/ \; 2>/dev/null || true
+          ls -la artifacts/ || true
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: openwrt-qat-packages
+          path: artifacts/
+          if-no-files-found: warn
