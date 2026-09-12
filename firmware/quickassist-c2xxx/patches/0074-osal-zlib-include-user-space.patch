@@ -1,0 +1,16 @@
+--- a/quickassist/build_system/build_files/env_files/linux_2.6_user_space.mk
++++ b/quickassist/build_system/build_files/env_files/linux_2.6_user_space.mk
+@@ -77,6 +77,11 @@
+ INCLUDES+= \
+           -I$(API_DIR)   \
+           -I$(OSAL_DIR)/include \
+-          -I$(OSAL_DIR)/src/linux/user_space/include
++          -I$(OSAL_DIR)/src/linux/user_space/include \
++          -I$(OSAL_DIR)/src/linux/user_space/osalzlib/include
++
++# OsalOsTypes.h pulls in zlib.h for every user-space consumer of Osal.h
++# (not just OSAL own translation units), so this include path needs to
++# be visible build-wide here, not only in osal/src/linux/user_space/Makefile.
+ 
+ #----------------------------------------------------------
+ #
