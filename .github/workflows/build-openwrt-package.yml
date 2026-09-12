@@ -67,7 +67,7 @@ jobs:
 
       - name: Build openssl (dependency, staged headers/libs for quickassist-c2xxx)
         working-directory: ${{ env.SDK_DIR }}
-        run: make package/feeds/base/openssl/{compile,install} -j"$(nproc)" V=s
+        run: make package/openssl/{compile,install} -j"$(nproc)" V=s
 
       - name: Build quickassist-c2xxx
         working-directory: ${{ env.SDK_DIR }}
