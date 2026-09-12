@@ -14,7 +14,7 @@ PKG_RELEASE:=2
 
 PKG_SOURCE_VERSION:=1.5.l.1.13.0-19
 PKG_SOURCE:=qat$(PKG_SOURCE_VERSION).tar.gz
-PKG_SOURCE_URL:=https://01.org/sites/default/files/downloads/intel-quickassist-technology/
+PKG_SOURCE_URL:=https://github.com/mab-wien/quickassist-openwrt-denverton/releases/download/vendor-src-mirror/
 PKG_HASH:=afe8339edbbf05099e79c256191584aabf30b564f89a553b9585b2f8e18bee17
 
 PKG_LICENSE:=GPL v3
