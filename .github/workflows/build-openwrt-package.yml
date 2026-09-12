@@ -50,10 +50,6 @@ jobs:
         run: |
           ./scripts/feeds update -a
           ./scripts/feeds install -a
-          echo "--- package/feeds contents ---"
-          find package/feeds -maxdepth 3 2>&1 | head -50
-          echo "--- staging_dir openssl headers/libs (SDK-prebuilt base packages) ---"
-          find staging_dir -maxdepth 6 -iname "*openssl*" 2>&1 | head -50
 
       - name: Configure (enable quickassist-c2xxx + openssl-qat)
         working-directory: ${{ env.SDK_DIR }}
@@ -74,14 +70,6 @@ jobs:
       - name: Build quickassist-c2xxx
         working-directory: ${{ env.SDK_DIR }}
         run: make package/utils/quickassist-c2xxx/compile -j"$(nproc)" V=s
-
-      - name: Verify quickassist-c2xxx headers survive for openssl-qat
-        working-directory: ${{ env.SDK_DIR }}
-        run: |
-          QAT_SRC=$(find build_dir -maxdepth 4 -type d -name 'quickassist-c2xxx-*' | head -1)
-          echo "QAT_SRC=$QAT_SRC"
-          ls -la "$QAT_SRC/quickassist/include/lac/cpa_cy_sym.h" 2>&1 || true
-          find "$QAT_SRC/quickassist/include" -maxdepth 2 2>&1 | head -30
 
       - name: Build openssl-qat
         working-directory: ${{ env.SDK_DIR }}
