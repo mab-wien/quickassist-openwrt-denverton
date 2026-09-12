@@ -50,7 +50,10 @@ jobs:
         run: |
           ./scripts/feeds update -a
           ./scripts/feeds install -a
-          ls -la package/feeds/base/libs/openssl 2>&1 || true
+          echo "--- package/feeds contents ---"
+          find package/feeds -maxdepth 3 2>&1 | head -50
+          echo "--- staging_dir openssl headers/libs (SDK-prebuilt base packages) ---"
+          find staging_dir -maxdepth 6 -iname "*openssl*" 2>&1 | head -50
 
       - name: Configure (enable quickassist-c2xxx + openssl-qat)
         working-directory: ${{ env.SDK_DIR }}
@@ -67,10 +70,6 @@ jobs:
           yes '1' | make oldconfig || true
           grep -E 'QAT_C2XXX|quickassist-c2xxx|openssl-qat|kmod-crypto-qat' .config
 
-
-      - name: Build openssl (dependency, staged headers/libs for quickassist-c2xxx)
-        working-directory: ${{ env.SDK_DIR }}
-        run: make package/feeds/base/libs/openssl/{compile,install} -j"$(nproc)" V=s
 
       - name: Build quickassist-c2xxx
         working-directory: ${{ env.SDK_DIR }}
