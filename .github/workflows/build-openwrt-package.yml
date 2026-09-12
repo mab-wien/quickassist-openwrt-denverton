@@ -66,6 +66,12 @@ jobs:
           grep -E 'QAT_C2XXX|quickassist-c2xxx|openssl-qat|kmod-crypto-qat' .config
 
 
+      - name: Find the openssl package path (unbounded search)
+        working-directory: ${{ env.SDK_DIR }}
+        run: |
+          find . -iname openssl -type d 2>/dev/null
+          find . -iname "openssl*" -name Makefile 2>/dev/null
+
       - name: Build openssl (dependency, staged headers/libs for quickassist-c2xxx)
         working-directory: ${{ env.SDK_DIR }}
         run: make package/libs/openssl/{compile,install} -j"$(nproc)" V=s
