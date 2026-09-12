@@ -1,0 +1,15 @@
+--- a/quickassist/utilities/libusdm_drv/linux/Makefile
++++ b/quickassist/utilities/libusdm_drv/linux/Makefile
+@@ -158,6 +158,12 @@
+ #produce two artefacts: module and static library and copy them
+ ifeq ($(OS),linux)
+ EXTRA_CFLAGS+=$(INCLUDES) -Werror -ftree-ter
++# Modern Kbuild (~6.13+) no longer folds the legacy EXTRA_CFLAGS name
++# into ccflags-y automatically (see the same fix already applied in
++# quickassist/build_system/build_files/env_files/linux_2.6_kernel_space.mk,
++# which this Makefile does not include for the OS=linux kernel-space
++# case above) - bridge it explicitly here too.
++ccflags-y += $(EXTRA_CFLAGS)
+ obj-m+=$(OUTPUT_NAME).o
+ $(OUTPUT_NAME)-objs :=$(patsubst %.c,%.o, $(MODULE_SOURCES)) $(ADDITIONAL_KERNEL_LIBS)
+ lib-m := $(patsubst %.c,%.o, $(SOURCES)) $(patsubst %.S,%.o, $(ASM_SOURCES))
