@@ -75,6 +75,14 @@ jobs:
         working-directory: ${{ env.SDK_DIR }}
         run: make package/utils/quickassist-c2xxx/compile -j"$(nproc)" V=s
 
+      - name: Verify quickassist-c2xxx headers survive for openssl-qat
+        working-directory: ${{ env.SDK_DIR }}
+        run: |
+          QAT_SRC=$(find build_dir -maxdepth 4 -type d -name 'quickassist-c2xxx-*' | head -1)
+          echo "QAT_SRC=$QAT_SRC"
+          ls -la "$QAT_SRC/quickassist/include/lac/cpa_cy_sym.h" 2>&1 || true
+          find "$QAT_SRC/quickassist/include" -maxdepth 2 2>&1 | head -30
+
       - name: Build openssl-qat
         working-directory: ${{ env.SDK_DIR }}
         run: make package/libs/openssl-qat/compile -j"$(nproc)" V=s
