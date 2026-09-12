@@ -141,9 +141,11 @@ define Build/InstallDev
 	$(CP) $(PKG_BUILD_DIR)/quickassist/lookaside/access_layer/include/*.h $(1)/usr/include
 	$(CP) $(PKG_BUILD_DIR)/quickassist $(1)/usr/icp
 	$(CP) $(PKG_BUILD_DIR)/build $(1)/usr/icp
+	ln -sf libicp_qa_al_s.so $(1)/usr/icp/build/libqat_s.so
+	ln -sf libicp_qa_al.a $(1)/usr/icp/build/libqat.a
 endef
 
-define Package/quickassist/install
+define Package/quickassist-c2xxx/install
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_DIR) $(1)/lib/firmware
 	$(INSTALL_DIR) $(1)/usr/sbin
