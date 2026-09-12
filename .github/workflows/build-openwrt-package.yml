@@ -42,7 +42,7 @@ jobs:
       - name: Trim feeds to what this package actually needs
         working-directory: ${{ env.SDK_DIR }}
         run: |
-          grep -E '^src-git (base|packages) ' feeds.conf.default > feeds.conf
+          grep -E '^src-git (--root=\S+ )?(base|packages) ' feeds.conf.default > feeds.conf
           cat feeds.conf
 
       - name: Update and install feeds
@@ -65,21 +65,10 @@ jobs:
           yes '1' | make oldconfig || true
           grep -E 'QAT_C2XXX|quickassist-c2xxx|openssl-qat|kmod-crypto-qat' .config
 
-      - name: Find the openssl package path
-        working-directory: ${{ env.SDK_DIR }}
-        run: |
-          echo "--- feeds.conf ---"
-          cat feeds.conf
-          echo "--- feed checkouts (top level of feeds/base) ---"
-          ls feeds/base/package 2>&1 | head -30
-          echo "--- any Makefile defining openssl anywhere ---"
-          grep -rl "^PKG_NAME:=openssl$" . --include=Makefile 2>/dev/null
-          echo "--- package/ symlink structure (top 2 levels) ---"
-          find package -maxdepth 2 -type d 2>&1
 
       - name: Build openssl (dependency, staged headers/libs for quickassist-c2xxx)
         working-directory: ${{ env.SDK_DIR }}
-        run: make package/openssl/{compile,install} -j"$(nproc)" V=s
+        run: make package/libs/openssl/{compile,install} -j"$(nproc)" V=s
 
       - name: Build quickassist-c2xxx
         working-directory: ${{ env.SDK_DIR }}
