@@ -8,7 +8,6 @@ menu "Configuration"
 			bool "None (Default)"
 		config QAT_C2XXX
 			bool "c2xxx - Rangeley"
-			depends on LINUX_4_14
 			select PACKAGE_quickassist-c2xxx
 			select PACKAGE_kmod-crypto-qat-c2xxx
 			select PACKAGE_kmod-crypto-qat-c2xxx-usdm
