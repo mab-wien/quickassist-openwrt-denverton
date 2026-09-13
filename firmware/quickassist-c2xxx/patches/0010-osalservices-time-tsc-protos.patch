@@ -1,5 +1,17 @@
---- a/quickassist/utilities/osal/src/linux/kernel_space/OsalServices.c	2026-09-11 22:21:53.974617011 +0200
-+++ b/quickassist/utilities/osal/src/linux/kernel_space/OsalServices.c	2026-09-11 22:21:54.012475860 +0200
+--- a/quickassist/utilities/osal/include/Osal.h
++++ b/quickassist/utilities/osal/include/Osal.h
+@@ -653,6 +653,9 @@
+  *  Time
+  *****************************/
+ 
++int __init osal_init(void);
++void osal_exit(void);
++
+ /* Retrieve current system time */
+ OSAL_PUBLIC OSAL_STATUS
+ osalTimeGet (OsalTimeval * pTime);
+--- a/quickassist/utilities/osal/src/linux/kernel_space/OsalServices.c
++++ b/quickassist/utilities/osal/src/linux/kernel_space/OsalServices.c
 @@ -30,6 +30,7 @@
   *  version: QAT1.5.L.1.13.0-19
   */
@@ -37,15 +49,3 @@
      return (timestamp);
  }
  
---- a/quickassist/utilities/osal/include/Osal.h	2026-09-11 22:21:53.978402899 +0200
-+++ b/quickassist/utilities/osal/include/Osal.h	2026-09-11 22:22:09.534147532 +0200
-@@ -653,6 +653,9 @@
-  *  Time
-  *****************************/
- 
-+int __init osal_init(void);
-+void osal_exit(void);
-+
- /* Retrieve current system time */
- OSAL_PUBLIC OSAL_STATUS
- osalTimeGet (OsalTimeval * pTime);

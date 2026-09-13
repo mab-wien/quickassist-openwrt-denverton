@@ -1,3 +1,77 @@
+--- a/multibuff_ecx.c
++++ b/multibuff_ecx.c
+@@ -51,6 +51,7 @@
+ #define __USE_GNU
+ 
+ #include <pthread.h>
++#include <sched.h>
+ #include <openssl/rsa.h>
+ #include <openssl/err.h>
+ #include <string.h>
+@@ -350,7 +351,7 @@
+            loop around and try again until the request
+            completes and we can continue. */
+         if ((job_ret = qat_pause_job(job, ASYNC_STATUS_OK)) == 0)
+-            pthread_yield();
++            sched_yield();
+     } while (QAT_CHK_JOB_RESUMED_UNEXPECTEDLY(job_ret));
+ 
+     DEBUG("Finished: %p status = %d\n", x25519_keygen_req, sts);
+@@ -495,7 +496,7 @@
+            loop around and try again until the request
+            completes and we can continue. */
+         if ((job_ret = qat_pause_job(job, ASYNC_STATUS_OK)) == 0)
+-            pthread_yield();
++            sched_yield();
+     } while (QAT_CHK_JOB_RESUMED_UNEXPECTEDLY(job_ret));
+ 
+     DEBUG("Finished: %p status = %d\n", x25519_derive_req, sts);
+--- a/multibuff_rsa.c
++++ b/multibuff_rsa.c
+@@ -51,6 +51,7 @@
+ #define __USE_GNU
+ 
+ #include <pthread.h>
++#include <sched.h>
+ #include <openssl/rsa.h>
+ #include <openssl/err.h>
+ #include <string.h>
+@@ -703,7 +704,7 @@
+            loop around and try again until the request
+            completes and we can continue. */
+         if ((job_ret = qat_pause_job(job, ASYNC_STATUS_OK)) == 0)
+-            pthread_yield();
++            sched_yield();
+     } while (QAT_CHK_JOB_RESUMED_UNEXPECTEDLY(job_ret));
+ 
+     DEBUG("Finished: %p status = %d\n", rsa_priv_req, sts);
+@@ -855,7 +856,7 @@
+            loop around and try again until the request
+            completes and we can continue. */
+         if ((job_ret = qat_pause_job(job, ASYNC_STATUS_OK)) == 0)
+-            pthread_yield();
++            sched_yield();
+     } while (QAT_CHK_JOB_RESUMED_UNEXPECTEDLY(job_ret));
+ 
+     DEBUG("Finished: %p status = %d\n", rsa_priv_req, sts);
+@@ -992,7 +993,7 @@
+            loop around and try again until the request
+            completes and we can continue. */
+         if ((job_ret = qat_pause_job(job, ASYNC_STATUS_OK)) == 0)
+-            pthread_yield();
++            sched_yield();
+     } while (QAT_CHK_JOB_RESUMED_UNEXPECTEDLY(job_ret));
+ 
+     DEBUG("Finished: %p status = %d\n", rsa_pub_req, sts);
+@@ -1111,7 +1112,7 @@
+            loop around and try again until the request
+            completes and we can continue. */
+         if ((job_ret = qat_pause_job(job, ASYNC_STATUS_OK)) == 0)
+-            pthread_yield();
++            sched_yield();
+     } while (QAT_CHK_JOB_RESUMED_UNEXPECTEDLY(job_ret));
+ 
+     DEBUG("Finished: %p status = %d\n", rsa_pub_req, sts);
 --- a/qat_asym_common.c
 +++ b/qat_asym_common.c
 @@ -53,6 +53,7 @@
@@ -20,6 +94,28 @@
          }
      }
      while (!op_done.flag ||
+--- a/qat_ciphers.c
++++ b/qat_ciphers.c
+@@ -62,6 +62,7 @@
+ # define _GNU_SOURCE
+ #endif
+ #include <pthread.h>
++#include <sched.h>
+ #include <signal.h>
+ #ifdef USE_QAT_CONTIG_MEM
+ # include "qae_mem_utils.h"
+@@ -1547,9 +1548,9 @@
+                loop around and try again until the request
+                completes and we can continue. */
+             if ((job_ret = qat_pause_job(done.opDone.job, ASYNC_STATUS_OK)) == 0)
+-                pthread_yield();
++                sched_yield();
+         } else {
+-            pthread_yield();
++            sched_yield();
+         }
+     } while (!done.opDone.flag ||
+              QAT_CHK_JOB_RESUMED_UNEXPECTEDLY(job_ret));
 --- a/qat_dh.c
 +++ b/qat_dh.c
 @@ -48,6 +48,7 @@
@@ -54,17 +150,75 @@
          }
      }
      while (!op_done.flag ||
---- a/qat_prf.c
-+++ b/qat_prf.c
+--- a/qat_dsa.c
++++ b/qat_dsa.c
+@@ -48,6 +48,7 @@
+ # define _GNU_SOURCE
+ #endif
+ #include <pthread.h>
++#include <sched.h>
+ #include <signal.h>
+ #include "qat_dsa.h"
+ #include "qat_utils.h"
+@@ -560,9 +561,9 @@
+                loop around and try again until the request
+                completes and we can continue. */
+             if ((job_ret = qat_pause_job(op_done.job, ASYNC_STATUS_OK)) == 0)
+-                pthread_yield();
++                sched_yield();
+         } else {
+-            pthread_yield();
++            sched_yield();
+         }
+     } while (!op_done.flag ||
+              QAT_CHK_JOB_RESUMED_UNEXPECTEDLY(job_ret));
+@@ -919,9 +920,9 @@
+                loop around and try again until the request
+                completes and we can continue. */
+             if ((job_ret = qat_pause_job(op_done.job, ASYNC_STATUS_OK)) == 0)
+-                pthread_yield();
++                sched_yield();
+         } else {
+-            pthread_yield();
++            sched_yield();
+         }
+     }
+     while (!op_done.flag ||
+--- a/qat_ec.c
++++ b/qat_ec.c
 @@ -47,6 +47,7 @@
  # define _GNU_SOURCE
  #endif
  #include <pthread.h>
 +#include <sched.h>
  #include <string.h>
- #include <signal.h>
- #include <stdarg.h>
-@@ -781,9 +782,9 @@
+ #include <limits.h>
+ #include <unistd.h>
+@@ -626,9 +627,9 @@
+                loop around and try again until the request
+                completes and we can continue. */
+             if ((job_ret = qat_pause_job(op_done.job, ASYNC_STATUS_OK)) == 0)
+-                pthread_yield();
++                sched_yield();
+         } else {
+-            pthread_yield();
++            sched_yield();
+         }
+     }
+     while (!op_done.flag ||
+@@ -1370,9 +1371,9 @@
+                loop around and try again until the request
+                completes and we can continue. */
+             if ((job_ret = qat_pause_job(op_done.job, ASYNC_STATUS_OK)) == 0)
+-                pthread_yield();
++                sched_yield();
+         } else {
+-            pthread_yield();
++            sched_yield();
+         }
+     }
+     while (!op_done.flag ||
+@@ -1788,9 +1789,9 @@
                 loop around and try again until the request
                 completes and we can continue. */
              if ((job_ret = qat_pause_job(op_done.job, ASYNC_STATUS_OK)) == 0)
@@ -178,128 +332,17 @@
          }
      }
      while (!op_done.flag ||
---- a/qat_rsa_crt.c
-+++ b/qat_rsa_crt.c
-@@ -50,6 +50,7 @@
- #define __USE_GNU
- 
- #include <pthread.h>
-+#include <sched.h>
- #include <openssl/rsa.h>
- #include <openssl/err.h>
- #include <string.h>
-@@ -475,7 +476,7 @@
-             icp_sal_CyPollInstance(qat_instance_handles[inst_num], 0);
-         }
-         else
--            pthread_yield();
-+            sched_yield();
-     } while(op_done.req != op_done.resp);
- 
-     /* discard results if the 2nd request sending failed */
---- a/qat_ciphers.c
-+++ b/qat_ciphers.c
-@@ -62,6 +62,7 @@
- # define _GNU_SOURCE
- #endif
- #include <pthread.h>
-+#include <sched.h>
- #include <signal.h>
- #ifdef USE_QAT_CONTIG_MEM
- # include "qae_mem_utils.h"
-@@ -1547,9 +1548,9 @@
-                loop around and try again until the request
-                completes and we can continue. */
-             if ((job_ret = qat_pause_job(done.opDone.job, ASYNC_STATUS_OK)) == 0)
--                pthread_yield();
-+                sched_yield();
-         } else {
--            pthread_yield();
-+            sched_yield();
-         }
-     } while (!done.opDone.flag ||
-              QAT_CHK_JOB_RESUMED_UNEXPECTEDLY(job_ret));
---- a/multibuff_rsa.c
-+++ b/multibuff_rsa.c
-@@ -51,6 +51,7 @@
- #define __USE_GNU
- 
- #include <pthread.h>
-+#include <sched.h>
- #include <openssl/rsa.h>
- #include <openssl/err.h>
- #include <string.h>
-@@ -703,7 +704,7 @@
-            loop around and try again until the request
-            completes and we can continue. */
-         if ((job_ret = qat_pause_job(job, ASYNC_STATUS_OK)) == 0)
--            pthread_yield();
-+            sched_yield();
-     } while (QAT_CHK_JOB_RESUMED_UNEXPECTEDLY(job_ret));
- 
-     DEBUG("Finished: %p status = %d\n", rsa_priv_req, sts);
-@@ -855,7 +856,7 @@
-            loop around and try again until the request
-            completes and we can continue. */
-         if ((job_ret = qat_pause_job(job, ASYNC_STATUS_OK)) == 0)
--            pthread_yield();
-+            sched_yield();
-     } while (QAT_CHK_JOB_RESUMED_UNEXPECTEDLY(job_ret));
- 
-     DEBUG("Finished: %p status = %d\n", rsa_priv_req, sts);
-@@ -992,7 +993,7 @@
-            loop around and try again until the request
-            completes and we can continue. */
-         if ((job_ret = qat_pause_job(job, ASYNC_STATUS_OK)) == 0)
--            pthread_yield();
-+            sched_yield();
-     } while (QAT_CHK_JOB_RESUMED_UNEXPECTEDLY(job_ret));
- 
-     DEBUG("Finished: %p status = %d\n", rsa_pub_req, sts);
-@@ -1111,7 +1112,7 @@
-            loop around and try again until the request
-            completes and we can continue. */
-         if ((job_ret = qat_pause_job(job, ASYNC_STATUS_OK)) == 0)
--            pthread_yield();
-+            sched_yield();
-     } while (QAT_CHK_JOB_RESUMED_UNEXPECTEDLY(job_ret));
- 
-     DEBUG("Finished: %p status = %d\n", rsa_pub_req, sts);
---- a/qat_ec.c
-+++ b/qat_ec.c
+--- a/qat_prf.c
++++ b/qat_prf.c
 @@ -47,6 +47,7 @@
  # define _GNU_SOURCE
  #endif
  #include <pthread.h>
 +#include <sched.h>
  #include <string.h>
- #include <limits.h>
- #include <unistd.h>
-@@ -626,9 +627,9 @@
-                loop around and try again until the request
-                completes and we can continue. */
-             if ((job_ret = qat_pause_job(op_done.job, ASYNC_STATUS_OK)) == 0)
--                pthread_yield();
-+                sched_yield();
-         } else {
--            pthread_yield();
-+            sched_yield();
-         }
-     }
-     while (!op_done.flag ||
-@@ -1370,9 +1371,9 @@
-                loop around and try again until the request
-                completes and we can continue. */
-             if ((job_ret = qat_pause_job(op_done.job, ASYNC_STATUS_OK)) == 0)
--                pthread_yield();
-+                sched_yield();
-         } else {
--            pthread_yield();
-+            sched_yield();
-         }
-     }
-     while (!op_done.flag ||
-@@ -1788,9 +1789,9 @@
+ #include <signal.h>
+ #include <stdarg.h>
+@@ -781,9 +782,9 @@
                 loop around and try again until the request
                 completes and we can continue. */
              if ((job_ret = qat_pause_job(op_done.job, ASYNC_STATUS_OK)) == 0)
@@ -345,9 +388,9 @@
              }
          }
      } while (!op_done.flag ||
---- a/multibuff_ecx.c
-+++ b/multibuff_ecx.c
-@@ -51,6 +51,7 @@
+--- a/qat_rsa_crt.c
++++ b/qat_rsa_crt.c
+@@ -50,6 +50,7 @@
  #define __USE_GNU
  
  #include <pthread.h>
@@ -355,55 +398,12 @@
  #include <openssl/rsa.h>
  #include <openssl/err.h>
  #include <string.h>
-@@ -350,7 +351,7 @@
-            loop around and try again until the request
-            completes and we can continue. */
-         if ((job_ret = qat_pause_job(job, ASYNC_STATUS_OK)) == 0)
--            pthread_yield();
-+            sched_yield();
-     } while (QAT_CHK_JOB_RESUMED_UNEXPECTEDLY(job_ret));
- 
-     DEBUG("Finished: %p status = %d\n", x25519_keygen_req, sts);
-@@ -495,7 +496,7 @@
-            loop around and try again until the request
-            completes and we can continue. */
-         if ((job_ret = qat_pause_job(job, ASYNC_STATUS_OK)) == 0)
--            pthread_yield();
-+            sched_yield();
-     } while (QAT_CHK_JOB_RESUMED_UNEXPECTEDLY(job_ret));
- 
-     DEBUG("Finished: %p status = %d\n", x25519_derive_req, sts);
---- a/qat_dsa.c
-+++ b/qat_dsa.c
-@@ -48,6 +48,7 @@
- # define _GNU_SOURCE
- #endif
- #include <pthread.h>
-+#include <sched.h>
- #include <signal.h>
- #include "qat_dsa.h"
- #include "qat_utils.h"
-@@ -560,9 +561,9 @@
-                loop around and try again until the request
-                completes and we can continue. */
-             if ((job_ret = qat_pause_job(op_done.job, ASYNC_STATUS_OK)) == 0)
--                pthread_yield();
-+                sched_yield();
-         } else {
--            pthread_yield();
-+            sched_yield();
+@@ -475,7 +476,7 @@
+             icp_sal_CyPollInstance(qat_instance_handles[inst_num], 0);
          }
-     } while (!op_done.flag ||
-              QAT_CHK_JOB_RESUMED_UNEXPECTEDLY(job_ret));
-@@ -919,9 +920,9 @@
-                loop around and try again until the request
-                completes and we can continue. */
-             if ((job_ret = qat_pause_job(op_done.job, ASYNC_STATUS_OK)) == 0)
--                pthread_yield();
-+                sched_yield();
-         } else {
+         else
 -            pthread_yield();
 +            sched_yield();
-         }
-     }
-     while (!op_done.flag ||
+     } while(op_done.req != op_done.resp);
+ 
+     /* discard results if the 2nd request sending failed */

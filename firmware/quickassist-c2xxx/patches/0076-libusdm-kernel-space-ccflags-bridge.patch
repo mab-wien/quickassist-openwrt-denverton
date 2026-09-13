@@ -1,8 +1,8 @@
 --- a/quickassist/utilities/libusdm_drv/linux/Makefile
 +++ b/quickassist/utilities/libusdm_drv/linux/Makefile
-@@ -158,6 +158,12 @@
- #produce two artefacts: module and static library and copy them
- ifeq ($(OS),linux)
+@@ -163,6 +163,12 @@
+ # path and breaking kernel_space/qae_mem_utils.c on toolchains that do not
+ # happen to find it some other way.
  EXTRA_CFLAGS+=$(INCLUDES) -Werror -ftree-ter
 +# Modern Kbuild (~6.13+) no longer folds the legacy EXTRA_CFLAGS name
 +# into ccflags-y automatically (see the same fix already applied in

@@ -1,5 +1,5 @@
---- a/quickassist/utilities/osal/src/linux/kernel_space/osalzlib/inflate.c	2026-09-11 22:52:39.870553644 +0200
-+++ b/quickassist/utilities/osal/src/linux/kernel_space/osalzlib/inflate.c	2026-09-11 22:52:39.912118603 +0200
+--- a/quickassist/utilities/osal/src/linux/kernel_space/osalzlib/inflate.c
++++ b/quickassist/utilities/osal/src/linux/kernel_space/osalzlib/inflate.c
 @@ -79,6 +79,12 @@
  #include "inflate.h"
  #include "inffast.h"
