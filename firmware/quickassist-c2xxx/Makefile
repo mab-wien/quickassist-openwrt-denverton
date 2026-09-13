@@ -123,6 +123,9 @@ MAKE_VARS += ICP_ROOT="$(PKG_BUILD_DIR)" \
 
 define Build/Prepare
 	(mkdir -p '$(PKG_BUILD_DIR)' && zcat '$(DL_DIR)/$(PKG_SOURCE)' | tar -C '$(PKG_BUILD_DIR)' -xf -)
+	$(SED) 's/\r$$//' \
+		$(PKG_BUILD_DIR)/quickassist/utilities/downloader/Target_CoreLibs/halAe/halMemScrub.c \
+		$(PKG_BUILD_DIR)/quickassist/utilities/downloader/Target_CoreLibs/halAe/halMemScrub.h
 	$(Build/Patch)
 endef
 
