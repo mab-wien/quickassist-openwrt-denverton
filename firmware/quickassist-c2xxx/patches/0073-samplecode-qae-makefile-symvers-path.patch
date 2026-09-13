@@ -9,3 +9,8 @@
  export $(KBUILD_EXTRA_SYMBOLS)
  
  #include your $(ICP_OS)_$(ICP_OS_LEVEL).mk file
+--- /dev/null
++++ b/quickassist/lookaside/access_layer/build/icp_qa_al.symvers
+@@ -0,0 +1,2 @@
++0x00000000	icp_sal_iommu_map	icp_qa_al	EXPORT_SYMBOL	
++0x00000000	icp_sal_iommu_unmap	icp_qa_al	EXPORT_SYMBOL	
