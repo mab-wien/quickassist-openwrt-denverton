@@ -1,5 +1,5 @@
---- a/quickassist/utilities/osal/src/linux/user_space/OsalServices.c	2026-09-11 21:11:41.969369774 +0200
-+++ b/quickassist/utilities/osal/src/linux/user_space/OsalServices.c	2026-09-11 21:11:41.980833497 +0200
+--- a/quickassist/utilities/osal/src/linux/user_space/OsalServices.c
++++ b/quickassist/utilities/osal/src/linux/user_space/OsalServices.c
 @@ -41,7 +41,7 @@
  
  #include <stdarg.h>

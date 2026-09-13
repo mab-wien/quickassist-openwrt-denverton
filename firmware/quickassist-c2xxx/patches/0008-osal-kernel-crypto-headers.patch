@@ -1,5 +1,5 @@
---- a/quickassist/utilities/osal/src/linux/kernel_space/OsalCryptoInterface.c	2026-09-11 22:04:04.701462782 +0200
-+++ b/quickassist/utilities/osal/src/linux/kernel_space/OsalCryptoInterface.c	2026-09-11 22:04:04.708786182 +0200
+--- a/quickassist/utilities/osal/src/linux/kernel_space/OsalCryptoInterface.c
++++ b/quickassist/utilities/osal/src/linux/kernel_space/OsalCryptoInterface.c
 @@ -31,13 +31,13 @@
  
  #include "Osal.h"

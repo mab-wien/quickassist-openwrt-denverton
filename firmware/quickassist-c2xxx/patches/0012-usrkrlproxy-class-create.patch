@@ -1,5 +1,5 @@
---- a/quickassist/utilities/osal/src/linux/kernel_space/OsalUsrKrlProxy.c	2026-09-11 22:34:11.079951847 +0200
-+++ b/quickassist/utilities/osal/src/linux/kernel_space/OsalUsrKrlProxy.c	2026-09-11 22:34:11.083712848 +0200
+--- a/quickassist/utilities/osal/src/linux/kernel_space/OsalUsrKrlProxy.c
++++ b/quickassist/utilities/osal/src/linux/kernel_space/OsalUsrKrlProxy.c
 @@ -525,7 +525,7 @@
      OSAL_LOCAL_ENSURE(drv_info,
                "chr_drv_create_class(): Invalid parameter value ",

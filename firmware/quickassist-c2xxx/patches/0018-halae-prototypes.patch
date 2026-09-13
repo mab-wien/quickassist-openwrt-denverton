@@ -9,6 +9,16 @@
  halAe_StartAuthenticatedME (icp_firml_handle_t *handle, 
              unsigned char ae)
  {
+--- a/quickassist/utilities/downloader/Target_CoreLibs/halAe/include/linux/halAe_platform.h
++++ b/quickassist/utilities/downloader/Target_CoreLibs/halAe/include/linux/halAe_platform.h
+@@ -144,6 +144,7 @@
+ 
+ int halAe_getPciCsr(icp_firml_handle_t *handle, unsigned int offset, unsigned int numBytes, unsigned int *data);
+ int halAe_putPciCsr(icp_firml_handle_t *handle, unsigned int offset, unsigned int numBytes, unsigned int data);
++int halAe_DisableClkGating(icp_firml_handle_t *handle);
+ #define GET_PCI_CSR halAe_getPciCsr
+ #define PUT_PCI_CSR halAe_putPciCsr
+ 
 --- a/quickassist/utilities/downloader/include/halAeApi.h
 +++ b/quickassist/utilities/downloader/include/halAeApi.h
 @@ -160,6 +160,21 @@
@@ -33,13 +43,3 @@
  /**
   *****************************************************************************
   * @ingroup icp_hal
---- a/quickassist/utilities/downloader/Target_CoreLibs/halAe/include/linux/halAe_platform.h
-+++ b/quickassist/utilities/downloader/Target_CoreLibs/halAe/include/linux/halAe_platform.h
-@@ -144,6 +144,7 @@
- 
- int halAe_getPciCsr(icp_firml_handle_t *handle, unsigned int offset, unsigned int numBytes, unsigned int *data);
- int halAe_putPciCsr(icp_firml_handle_t *handle, unsigned int offset, unsigned int numBytes, unsigned int data);
-+int halAe_DisableClkGating(icp_firml_handle_t *handle);
- #define GET_PCI_CSR halAe_getPciCsr
- #define PUT_PCI_CSR halAe_putPciCsr
- 

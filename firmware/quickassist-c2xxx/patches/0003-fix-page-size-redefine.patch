@@ -1,5 +1,5 @@
---- a/quickassist/utilities/libusdm_drv/linux/user_space/qae_page_table.h	2026-09-11 20:39:12.603049533 +0200
-+++ b/quickassist/utilities/libusdm_drv/linux/user_space/qae_page_table.h	2026-09-11 20:39:12.603049533 +0200
+--- a/quickassist/utilities/libusdm_drv/linux/user_space/qae_page_table.h
++++ b/quickassist/utilities/libusdm_drv/linux/user_space/qae_page_table.h
 @@ -81,7 +81,7 @@
  #include <string.h>
  #endif

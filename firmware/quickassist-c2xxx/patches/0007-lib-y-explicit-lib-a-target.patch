@@ -1,5 +1,5 @@
---- a/quickassist/build_system/build_files/OS/linux_2.6_kernel_space_rules.mk	2026-09-11 21:57:35.098834491 +0200
-+++ b/quickassist/build_system/build_files/OS/linux_2.6_kernel_space_rules.mk	2026-09-11 21:57:35.152187155 +0200
+--- a/quickassist/build_system/build_files/OS/linux_2.6_kernel_space_rules.mk
++++ b/quickassist/build_system/build_files/OS/linux_2.6_kernel_space_rules.mk
 @@ -67,12 +67,12 @@
  else
  obj-m+=$(OUTPUT_NAME).o
