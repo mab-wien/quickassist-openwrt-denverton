@@ -1,5 +1,7 @@
---- a/quickassist/utilities/osal/src/linux/kernel_space/OsalCryptoInterface.c
-+++ b/quickassist/utilities/osal/src/linux/kernel_space/OsalCryptoInterface.c
+Index: src/quickassist/utilities/osal/src/linux/kernel_space/OsalCryptoInterface.c
+===================================================================
+--- src.orig/quickassist/utilities/osal/src/linux/kernel_space/OsalCryptoInterface.c
++++ src/quickassist/utilities/osal/src/linux/kernel_space/OsalCryptoInterface.c
 @@ -31,13 +31,13 @@
  
  #include "Osal.h"

@@ -1,6 +1,8 @@
---- a/quickassist/lookaside/access_layer/include/icp_sal_poll.h
-+++ b/quickassist/lookaside/access_layer/include/icp_sal_poll.h
-@@ -165,7 +165,7 @@
+Index: src/quickassist/lookaside/access_layer/include/icp_sal_poll.h
+===================================================================
+--- src.orig/quickassist/lookaside/access_layer/include/icp_sal_poll.h
++++ src/quickassist/lookaside/access_layer/include/icp_sal_poll.h
+@@ -165,7 +165,7 @@ icp_sal_CyPollInstance(CpaInstanceHandle
    *************************************************************************/
  CpaStatus
  icp_sal_CyPollDpInstance(CpaInstanceHandle instanceHandle,

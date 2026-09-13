@@ -1,6 +1,8 @@
---- a/quickassist/utilities/downloader/Target_CoreLibs/halAe/halMemScrub.c	2026-09-13 05:03:04.343109287 +0200
-+++ b/quickassist/utilities/downloader/Target_CoreLibs/halAe/halMemScrub.c	2026-09-13 04:46:36.776686138 +0200
-@@ -144,7 +144,7 @@
+Index: src/quickassist/utilities/downloader/Target_CoreLibs/halAe/halMemScrub.c
+===================================================================
+--- src.orig/quickassist/utilities/downloader/Target_CoreLibs/halAe/halMemScrub.c
++++ src/quickassist/utilities/downloader/Target_CoreLibs/halAe/halMemScrub.c
+@@ -144,7 +144,7 @@ halMem_getCsrName(unsigned int CSR_offse
  * 
  * 
  *****************************************************************************/
@@ -9,7 +11,7 @@
  {
      switch(halRet)
      {
-@@ -932,7 +932,7 @@
+@@ -932,7 +932,7 @@ halMem_MmpInitializeMemory(const char* F
    *    
    * 
    *****************************************************************************/
@@ -18,7 +20,7 @@
  halMem_ScrubMMPMemory(icp_firml_handle_t *handle)
  {
      int Status = HALMEM_SUCCESS;
-@@ -1872,7 +1872,7 @@
+@@ -1872,7 +1872,7 @@ int halMem_SharedRamToDRam(
    * 
    * 
    *****************************************************************************/
@@ -27,9 +29,11 @@
  halMem_ScrubSharedRam(icp_firml_handle_t *handle)
  {
      int Status = HALMEM_SUCCESS, halAeStatus = HALAE_SUCCESS;
---- a/quickassist/utilities/downloader/Target_CoreLibs/halAe/halMemScrub.h	2026-09-13 05:03:04.343109287 +0200
-+++ b/quickassist/utilities/downloader/Target_CoreLibs/halAe/halMemScrub.h	2026-09-13 04:46:44.009369868 +0200
-@@ -210,6 +210,15 @@
+Index: src/quickassist/utilities/downloader/Target_CoreLibs/halAe/halMemScrub.h
+===================================================================
+--- src.orig/quickassist/utilities/downloader/Target_CoreLibs/halAe/halMemScrub.h
++++ src/quickassist/utilities/downloader/Target_CoreLibs/halAe/halMemScrub.h
+@@ -210,6 +210,15 @@ int
  halMem_InitMemory(icp_firml_handle_t *handle,
                         QAT_MEM_TYPE QatMemType);
  

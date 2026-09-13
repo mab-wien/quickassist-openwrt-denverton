@@ -1,6 +1,8 @@
---- a/quickassist/utilities/downloader/Target_CoreLibs/halAe/accelcomp/Makefile
-+++ b/quickassist/utilities/downloader/Target_CoreLibs/halAe/accelcomp/Makefile
-@@ -102,7 +102,7 @@
+Index: src/quickassist/utilities/downloader/Target_CoreLibs/halAe/accelcomp/Makefile
+===================================================================
+--- src.orig/quickassist/utilities/downloader/Target_CoreLibs/halAe/accelcomp/Makefile
++++ src/quickassist/utilities/downloader/Target_CoreLibs/halAe/accelcomp/Makefile
+@@ -102,7 +102,7 @@ else
        
  all:
  	cp -f $(ICP_OSAL_RELEASE_LINUX)/libosal.a $(PWD)

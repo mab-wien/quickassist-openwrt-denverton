@@ -1,6 +1,8 @@
---- a/quickassist/lookaside/access_layer/src/common/crypto/sym/lac_sym_api.c
-+++ b/quickassist/lookaside/access_layer/src/common/crypto/sym/lac_sym_api.c
-@@ -170,6 +170,10 @@
+Index: src/quickassist/lookaside/access_layer/src/common/crypto/sym/lac_sym_api.c
+===================================================================
+--- src.orig/quickassist/lookaside/access_layer/src/common/crypto/sym/lac_sym_api.c
++++ src/quickassist/lookaside/access_layer/src/common/crypto/sym/lac_sym_api.c
+@@ -170,6 +170,10 @@ void LacDp_WriteRingMsgOpt(CpaCySymDpOpD
   * @return void
   *
   *****************************************************************************/

@@ -1,6 +1,8 @@
---- a/configure.ac
-+++ b/configure.ac
-@@ -554,13 +554,13 @@
+Index: src/configure.ac
+===================================================================
+--- src.orig/configure.ac
++++ src/configure.ac
+@@ -554,13 +554,13 @@ case "$host_os" in
  *linux*)
    if test "`cc --version | head -1 | awk '{print $3>=4.9}' 2>/dev/null`" = "1"
    then

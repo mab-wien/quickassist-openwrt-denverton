@@ -1,6 +1,8 @@
---- a/quickassist/lookaside/access_layer/src/common/crypto/sym/drbg/drbg_ht/lac_sym_drbg_ht_tests.c
-+++ b/quickassist/lookaside/access_layer/src/common/crypto/sym/drbg/drbg_ht/lac_sym_drbg_ht_tests.c
-@@ -120,22 +120,26 @@
+Index: src/quickassist/lookaside/access_layer/src/common/crypto/sym/drbg/drbg_ht/lac_sym_drbg_ht_tests.c
+===================================================================
+--- src.orig/quickassist/lookaside/access_layer/src/common/crypto/sym/drbg/drbg_ht/lac_sym_drbg_ht_tests.c
++++ src/quickassist/lookaside/access_layer/src/common/crypto/sym/drbg/drbg_ht/lac_sym_drbg_ht_tests.c
+@@ -120,22 +120,26 @@ STATIC CpaStatus
  LacDrbg_HTRemoveSession(const CpaInstanceHandle instanceHandle_in,
          CpaCyDrbgSessionHandle sessionHandle);
  
@@ -29,7 +31,7 @@
  {
      osalMutexUnlock(&lock);
  }
-@@ -867,7 +871,7 @@
+@@ -867,7 +871,7 @@ LacDrbg_TestGenGetEntropyInput(IcpSalDrb
   * @return CPA_STATUS_SUCCESS         Operation successful
   *
   *****************************************************************************/

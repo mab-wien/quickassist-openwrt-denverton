@@ -1,5 +1,7 @@
---- a/quickassist/lookaside/access_layer/src/sample_code/performance/qae/linux/kernel_space/qae_mem_drv.c
-+++ b/quickassist/lookaside/access_layer/src/sample_code/performance/qae/linux/kernel_space/qae_mem_drv.c
+Index: src/quickassist/lookaside/access_layer/src/sample_code/performance/qae/linux/kernel_space/qae_mem_drv.c
+===================================================================
+--- src.orig/quickassist/lookaside/access_layer/src/sample_code/performance/qae/linux/kernel_space/qae_mem_drv.c
++++ src/quickassist/lookaside/access_layer/src/sample_code/performance/qae/linux/kernel_space/qae_mem_drv.c
 @@ -70,6 +70,9 @@
   */
  
@@ -10,7 +12,7 @@
  #include "qae_mem.h"
  #ifdef SAL_IOMMU_CODE
  #include <icp_sal_iommu.h>
-@@ -128,7 +131,7 @@
+@@ -128,7 +131,7 @@ static user_mem_dev_t *mem_dev_numa = NU
  /*
   * Find memory information
   */
@@ -19,7 +21,7 @@
  {
      user_proc_mem_list_t *list = NULL;
      qae_dev_mem_info_t *mem = NULL;
-@@ -156,7 +159,7 @@
+@@ -156,7 +159,7 @@ qae_dev_mem_info_t *userMemGetInfo(user_
  /*
   * Allocate numa memory
   */
@@ -28,7 +30,7 @@
          unsigned int node, unsigned int pid)
  {
      qae_dev_mem_info_t *mem_info = NULL;
-@@ -228,7 +231,7 @@
+@@ -228,7 +231,7 @@ qae_dev_mem_info_t *userMemAlloc(user_me
  /*
   * Free memory
   */
@@ -37,7 +39,7 @@
  {
      qae_dev_mem_info_t *mem_info = NULL;
      qae_dev_mem_info_t *freed_info = NULL;
-@@ -283,7 +286,7 @@
+@@ -283,7 +286,7 @@ void userMemFree(user_mem_dev_t* dev, un
  /*
   * Free memory associated with PID
   */
@@ -46,7 +48,7 @@
  {
      qae_dev_mem_info_t *mem_info = NULL, *next = NULL;
      user_proc_mem_list_t *list = NULL, *l_next = NULL;
-@@ -325,7 +328,7 @@
+@@ -325,7 +328,7 @@ void userMemFreeAllPid(user_mem_dev_t* d
  /*
   * Free all memory
   */
@@ -55,7 +57,7 @@
  {
      qae_dev_mem_info_t *mem_info = NULL, *next = NULL;
      user_proc_mem_list_t *list = NULL, *l_next = NULL;
-@@ -594,7 +597,7 @@
+@@ -594,7 +597,7 @@ chr_drv_create_class(chr_drv_info_t* drv
              "chr_drv_create_class(): parameter is NULL ",
              FAIL);
  
@@ -64,7 +66,7 @@
      if (IS_ERR(drv_info->drv_class))
      {
          printk("class_create failed\n");
-@@ -694,7 +697,7 @@
+@@ -694,7 +697,7 @@ chr_drv_create_device(chr_drv_info_t *dr
  /*
   * register the device driver
   */
@@ -73,7 +75,7 @@
  {
      int ret = 0;
  
-@@ -730,7 +733,7 @@
+@@ -730,7 +733,7 @@ int register_mem_device_driver(void)
   * unregister the device driver
   */
  
@@ -82,7 +84,7 @@
  {
      chr_drv_destroy_device(&mem_drv_info);
      chr_drv_destroy_class(&mem_drv_info);
-@@ -741,7 +744,7 @@
+@@ -741,7 +744,7 @@ void unregister_mem_device_driver(void)
  /*
   * Initialization function to insmod device driver
   */
@@ -91,7 +93,7 @@
  {
  
      printk( "Loading QAE MEM Module ...\n" ) ;
-@@ -756,7 +759,7 @@
+@@ -756,7 +759,7 @@ int qae_mem_init( void )
  /*
   * tear down function to rmmod device driver
   */

@@ -1,6 +1,8 @@
---- a/quickassist/adf/src/adf_lib.c
-+++ b/quickassist/adf/src/adf_lib.c
-@@ -117,6 +117,8 @@
+Index: src/quickassist/adf/src/adf_lib.c
+===================================================================
+--- src.orig/quickassist/adf/src/adf_lib.c
++++ src/quickassist/adf/src/adf_lib.c
+@@ -117,6 +117,8 @@ inline void adf_put_module(void)
   * adf_init
   * Adf lib init function
   */
@@ -9,7 +11,7 @@
  int __init adf_init(void)
  {
          Cpa32U status = SUCCESS;
-@@ -151,6 +153,8 @@
+@@ -151,6 +153,8 @@ int __init adf_init(void)
   * adfdrv_release
   * Adf lib exit function
   */

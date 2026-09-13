@@ -1,5 +1,7 @@
---- a/quickassist/utilities/libusdm_drv/linux/user_space/qae_page_table.h
-+++ b/quickassist/utilities/libusdm_drv/linux/user_space/qae_page_table.h
+Index: src/quickassist/utilities/libusdm_drv/linux/user_space/qae_page_table.h
+===================================================================
+--- src.orig/quickassist/utilities/libusdm_drv/linux/user_space/qae_page_table.h
++++ src/quickassist/utilities/libusdm_drv/linux/user_space/qae_page_table.h
 @@ -81,7 +81,7 @@
  #include <string.h>
  #endif

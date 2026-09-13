@@ -1,5 +1,7 @@
---- a/quickassist/lookaside/access_layer/src/linux/icp_qa_module.c
-+++ b/quickassist/lookaside/access_layer/src/linux/icp_qa_module.c
+Index: src/quickassist/lookaside/access_layer/src/linux/icp_qa_module.c
+===================================================================
+--- src.orig/quickassist/lookaside/access_layer/src/linux/icp_qa_module.c
++++ src/quickassist/lookaside/access_layer/src/linux/icp_qa_module.c
 @@ -78,7 +78,6 @@
  #include <linux/crypto.h>
  #if (LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,28))

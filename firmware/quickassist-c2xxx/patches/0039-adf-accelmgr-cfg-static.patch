@@ -1,6 +1,8 @@
---- a/quickassist/adf/accel_mgr/src/adf_cfg.c
-+++ b/quickassist/adf/accel_mgr/src/adf_cfg.c
-@@ -314,7 +314,7 @@
+Index: src/quickassist/adf/accel_mgr/src/adf_cfg.c
+===================================================================
+--- src.orig/quickassist/adf/accel_mgr/src/adf_cfg.c
++++ src/quickassist/adf/accel_mgr/src/adf_cfg.c
+@@ -314,7 +314,7 @@ void adf_cfgSectionDel(adf_cfg_section_t
   * adf_cfgKeyValueList
   * List all key-value parameters from the key-value table
   */
@@ -9,7 +11,7 @@
  {
      while (pKeyValueList != NULL)
      {
-@@ -328,7 +328,7 @@
+@@ -328,7 +328,7 @@ void adf_cfgKeyValueList(adf_cfg_key_val
   * adf_cfgSectionList
   * List all sections and associated key-value pairs
   */

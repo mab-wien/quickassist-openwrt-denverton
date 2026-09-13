@@ -1,5 +1,7 @@
---- a/quickassist/lookaside/access_layer/src/common/qat_ctrl/qat_admin.c
-+++ b/quickassist/lookaside/access_layer/src/common/qat_ctrl/qat_admin.c
+Index: src/quickassist/lookaside/access_layer/src/common/qat_ctrl/qat_admin.c
+===================================================================
+--- src.orig/quickassist/lookaside/access_layer/src/common/qat_ctrl/qat_admin.c
++++ src/quickassist/lookaside/access_layer/src/common/qat_ctrl/qat_admin.c
 @@ -109,7 +109,7 @@
   * QatCtrl_AdminSyncCb
   * Admin Sync Callback function.

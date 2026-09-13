@@ -1,5 +1,7 @@
---- a/quickassist/adf/drivers/common/linux/src/adf_gige_wd_drv.c
-+++ b/quickassist/adf/drivers/common/linux/src/adf_gige_wd_drv.c
+Index: src/quickassist/adf/drivers/common/linux/src/adf_gige_wd_drv.c
+===================================================================
+--- src.orig/quickassist/adf/drivers/common/linux/src/adf_gige_wd_drv.c
++++ src/quickassist/adf/drivers/common/linux/src/adf_gige_wd_drv.c
 @@ -74,6 +74,7 @@
  #include "icp_platform.h"
  #include "adf_chr_drv.h"

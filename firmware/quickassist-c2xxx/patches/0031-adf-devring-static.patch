@@ -1,6 +1,8 @@
---- a/quickassist/adf/drivers/common/linux/src/adf_dev_ring.c
-+++ b/quickassist/adf/drivers/common/linux/src/adf_dev_ring.c
-@@ -214,7 +214,7 @@
+Index: src/quickassist/adf/drivers/common/linux/src/adf_dev_ring.c
+===================================================================
+--- src.orig/quickassist/adf/drivers/common/linux/src/adf_dev_ring.c
++++ src/quickassist/adf/drivers/common/linux/src/adf_dev_ring.c
+@@ -214,7 +214,7 @@ void adf_ring_chrdev_unregister(void)
  /*
   * Dummy kernelspace callback for userspace rings
   */

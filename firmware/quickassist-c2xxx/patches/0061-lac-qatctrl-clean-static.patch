@@ -1,6 +1,8 @@
---- a/quickassist/lookaside/access_layer/src/common/ctrl/sal_qat_ctrl.c
-+++ b/quickassist/lookaside/access_layer/src/common/ctrl/sal_qat_ctrl.c
-@@ -436,7 +436,7 @@
+Index: src/quickassist/lookaside/access_layer/src/common/ctrl/sal_qat_ctrl.c
+===================================================================
+--- src.orig/quickassist/lookaside/access_layer/src/common/ctrl/sal_qat_ctrl.c
++++ src/quickassist/lookaside/access_layer/src/common/ctrl/sal_qat_ctrl.c
+@@ -436,7 +436,7 @@ STATIC CpaStatus SalCtrl_ValidateService
  /*
   * Free all memory allocated for the QAT instance
   */

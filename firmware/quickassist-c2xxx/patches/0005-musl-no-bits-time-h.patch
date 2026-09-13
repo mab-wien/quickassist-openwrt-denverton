@@ -1,5 +1,7 @@
---- a/quickassist/utilities/osal/src/linux/user_space/OsalServices.c
-+++ b/quickassist/utilities/osal/src/linux/user_space/OsalServices.c
+Index: src/quickassist/utilities/osal/src/linux/user_space/OsalServices.c
+===================================================================
+--- src.orig/quickassist/utilities/osal/src/linux/user_space/OsalServices.c
++++ src/quickassist/utilities/osal/src/linux/user_space/OsalServices.c
 @@ -41,7 +41,7 @@
  
  #include <stdarg.h>

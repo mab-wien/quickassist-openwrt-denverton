@@ -1,5 +1,7 @@
---- a/quickassist/adf/wireless/src/adf_wireless_events.c
-+++ b/quickassist/adf/wireless/src/adf_wireless_events.c
+Index: src/quickassist/adf/wireless/src/adf_wireless_events.c
+===================================================================
+--- src.orig/quickassist/adf/wireless/src/adf_wireless_events.c
++++ src/quickassist/adf/wireless/src/adf_wireless_events.c
 @@ -76,6 +76,7 @@
  #include "adf_cfg.h"
  #include "adf_platform.h"

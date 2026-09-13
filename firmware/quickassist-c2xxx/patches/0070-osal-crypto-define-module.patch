@@ -1,5 +1,7 @@
---- a/quickassist/utilities/osal/src/linux/kernel_space/OsalCryptoInterface.c
-+++ b/quickassist/utilities/osal/src/linux/kernel_space/OsalCryptoInterface.c
+Index: src/quickassist/utilities/osal/src/linux/kernel_space/OsalCryptoInterface.c
+===================================================================
+--- src.orig/quickassist/utilities/osal/src/linux/kernel_space/OsalCryptoInterface.c
++++ src/quickassist/utilities/osal/src/linux/kernel_space/OsalCryptoInterface.c
 @@ -29,6 +29,15 @@
   *  version: QAT1.5.L.1.13.0-19
   */
