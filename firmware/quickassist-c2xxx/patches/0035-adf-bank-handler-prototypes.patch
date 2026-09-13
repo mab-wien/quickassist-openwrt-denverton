@@ -1,6 +1,8 @@
---- a/quickassist/adf/platform/include/adf_platform_common.h
-+++ b/quickassist/adf/platform/include/adf_platform_common.h
-@@ -307,6 +307,43 @@
+Index: src/quickassist/adf/platform/include/adf_platform_common.h
+===================================================================
+--- src.orig/quickassist/adf/platform/include/adf_platform_common.h
++++ src/quickassist/adf/platform/include/adf_platform_common.h
+@@ -307,6 +307,43 @@ void adf_c2xxx_set_hw_data(void *hw_data
   */
  void adf_c2xxx_set_hw_data_iov(adf_hw_device_data_t *hw_data);
  

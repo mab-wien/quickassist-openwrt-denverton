@@ -1,5 +1,7 @@
---- a/quickassist/lookaside/access_layer/src/common/crypto/asym/diffie_hellman/lac_dh_interface_check.c
-+++ b/quickassist/lookaside/access_layer/src/common/crypto/asym/diffie_hellman/lac_dh_interface_check.c
+Index: src/quickassist/lookaside/access_layer/src/common/crypto/asym/diffie_hellman/lac_dh_interface_check.c
+===================================================================
+--- src.orig/quickassist/lookaside/access_layer/src/common/crypto/asym/diffie_hellman/lac_dh_interface_check.c
++++ src/quickassist/lookaside/access_layer/src/common/crypto/asym/diffie_hellman/lac_dh_interface_check.c
 @@ -84,6 +84,7 @@
  #include "icp_qat_fw_pke.h"
  #include "icp_qat_fw_mmp.h"

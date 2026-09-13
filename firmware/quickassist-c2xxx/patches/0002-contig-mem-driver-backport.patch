@@ -1,5 +1,7 @@
---- a/quickassist/Makefile
-+++ b/quickassist/Makefile
+Index: src/quickassist/Makefile
+===================================================================
+--- src.orig/quickassist/Makefile
++++ src/quickassist/Makefile
 @@ -80,8 +80,11 @@ else
  endif
  
@@ -53,8 +55,10 @@
  	@echo ; echo 'Building user ADF';
  	@cd $(ADF_PATH) && export ADF_PLATFORM=ACCELDEV && export ICP_ENV_DIR=$(ICP_TOP_ENV) && export ONE_KO_RELEASE_PACKAGE=1 && ICP_OS_LEVEL=user_space && $(MAKE) ARCH=$(ICP_ARCH_USER) adf_user;
  	cp $(ADF_PATH)/build/linux_2.6/libadf_proxy.a $(ICP_BUILD_OUTPUT)/;
+Index: src/quickassist/utilities/libusdm_drv/Makefile
+===================================================================
 --- /dev/null
-+++ b/quickassist/utilities/libusdm_drv/Makefile
++++ src/quickassist/utilities/libusdm_drv/Makefile
 @@ -0,0 +1,142 @@
 +#########################################################################
 +#
@@ -198,8 +202,10 @@
 +	@doxygen qae_mem.h > doxygen_output.txt 2>&1;
 +	@echo "The doxygen file is available at $(PWD)/html/index.html"
 +	@echo "The doxygen command output is available at $(PWD)/doxygen_output.txt"
+Index: src/quickassist/utilities/libusdm_drv/linux/Makefile
+===================================================================
 --- /dev/null
-+++ b/quickassist/utilities/libusdm_drv/linux/Makefile
++++ src/quickassist/utilities/libusdm_drv/linux/Makefile
 @@ -0,0 +1,197 @@
 +#########################################################################
 +#
@@ -398,8 +404,10 @@
 +include $(ICP_BUILDSYSTEM_PATH)/build_files/rules.mk
 +
 +###################End of Rules inclusion#########################
+Index: src/quickassist/utilities/libusdm_drv/linux/include/qae_mem_utils.h
+===================================================================
 --- /dev/null
-+++ b/quickassist/utilities/libusdm_drv/linux/include/qae_mem_utils.h
++++ src/quickassist/utilities/libusdm_drv/linux/include/qae_mem_utils.h
 @@ -0,0 +1,757 @@
 +/***************************************************************************
 + *
@@ -1158,8 +1166,10 @@
 +#endif
 +#endif
 +#endif
+Index: src/quickassist/utilities/libusdm_drv/linux/include/qdm.h
+===================================================================
 --- /dev/null
-+++ b/quickassist/utilities/libusdm_drv/linux/include/qdm.h
++++ src/quickassist/utilities/libusdm_drv/linux/include/qdm.h
 @@ -0,0 +1,61 @@
 +/*
 + *  This file is provided under a dual BSD/GPLv2 license.  When using or
@@ -1222,8 +1232,10 @@
 +int qdm_iommu_unmap(dma_addr_t iova, size_t size);
 +
 +#endif /* __QDM_H__ */
+Index: src/quickassist/utilities/libusdm_drv/linux/kernel_space/qae_mem_drv.c
+===================================================================
 --- /dev/null
-+++ b/quickassist/utilities/libusdm_drv/linux/kernel_space/qae_mem_drv.c
++++ src/quickassist/utilities/libusdm_drv/linux/kernel_space/qae_mem_drv.c
 @@ -0,0 +1,1590 @@
 +/***************************************************************************
 + *
@@ -2815,8 +2827,10 @@
 +MODULE_DESCRIPTION("User Space DMA-able Memory Driver");
 +
 +
+Index: src/quickassist/utilities/libusdm_drv/linux/kernel_space/qae_mem_drv_utils.c
+===================================================================
 --- /dev/null
-+++ b/quickassist/utilities/libusdm_drv/linux/kernel_space/qae_mem_drv_utils.c
++++ src/quickassist/utilities/libusdm_drv/linux/kernel_space/qae_mem_drv_utils.c
 @@ -0,0 +1,82 @@
 +/***************************************************************************
 + *
@@ -2900,8 +2914,10 @@
 +    return -EINVAL;
 +}
 +
+Index: src/quickassist/utilities/libusdm_drv/linux/kernel_space/qae_mem_utils.c
+===================================================================
 --- /dev/null
-+++ b/quickassist/utilities/libusdm_drv/linux/kernel_space/qae_mem_utils.c
++++ src/quickassist/utilities/libusdm_drv/linux/kernel_space/qae_mem_utils.c
 @@ -0,0 +1,277 @@
 +/***************************************************************************
 + *
@@ -3180,8 +3196,10 @@
 +    }
 +    return (uint64_t)(uintptr_t)virt_to_phys(ptr);
 +}
+Index: src/quickassist/utilities/libusdm_drv/linux/kernel_space/qdm.c
+===================================================================
 --- /dev/null
-+++ b/quickassist/utilities/libusdm_drv/linux/kernel_space/qdm.c
++++ src/quickassist/utilities/libusdm_drv/linux/kernel_space/qdm.c
 @@ -0,0 +1,187 @@
 +/*
 + *  This file is provided under a dual BSD/GPLv2 license.  When using or
@@ -3370,8 +3388,10 @@
 +		iommu_domain_free(domain);
 +	domain = NULL;
 +}
+Index: src/quickassist/utilities/libusdm_drv/linux/user_space/qae_mem_hugepage_utils.c
+===================================================================
 --- /dev/null
-+++ b/quickassist/utilities/libusdm_drv/linux/user_space/qae_mem_hugepage_utils.c
++++ src/quickassist/utilities/libusdm_drv/linux/user_space/qae_mem_hugepage_utils.c
 @@ -0,0 +1,288 @@
 +/***************************************************************************
 + *
@@ -3661,8 +3681,10 @@
 +{
 +    return g_hugepages_enabled;
 +}
+Index: src/quickassist/utilities/libusdm_drv/linux/user_space/qae_mem_hugepage_utils.h
+===================================================================
 --- /dev/null
-+++ b/quickassist/utilities/libusdm_drv/linux/user_space/qae_mem_hugepage_utils.h
++++ src/quickassist/utilities/libusdm_drv/linux/user_space/qae_mem_hugepage_utils.h
 @@ -0,0 +1,91 @@
 +/***************************************************************************
 + *
@@ -3755,8 +3777,10 @@
 +
 +int hugepage_enabled();
 +#endif
+Index: src/quickassist/utilities/libusdm_drv/linux/user_space/qae_mem_user_utils.h
+===================================================================
 --- /dev/null
-+++ b/quickassist/utilities/libusdm_drv/linux/user_space/qae_mem_user_utils.h
++++ src/quickassist/utilities/libusdm_drv/linux/user_space/qae_mem_user_utils.h
 @@ -0,0 +1,108 @@
 +/***************************************************************************
 + *
@@ -3866,8 +3890,10 @@
 +}
 +
 +#endif
+Index: src/quickassist/utilities/libusdm_drv/linux/user_space/qae_mem_utils.c
+===================================================================
 --- /dev/null
-+++ b/quickassist/utilities/libusdm_drv/linux/user_space/qae_mem_utils.c
++++ src/quickassist/utilities/libusdm_drv/linux/user_space/qae_mem_utils.c
 @@ -0,0 +1,1331 @@
 +/***************************************************************************
 + *
@@ -5200,8 +5226,10 @@
 +    }
 +    return;
 +}
+Index: src/quickassist/utilities/libusdm_drv/linux/user_space/qae_page_table.h
+===================================================================
 --- /dev/null
-+++ b/quickassist/utilities/libusdm_drv/linux/user_space/qae_page_table.h
++++ src/quickassist/utilities/libusdm_drv/linux/user_space/qae_page_table.h
 @@ -0,0 +1,431 @@
 +/*******************************************************************************
 + *
@@ -5634,8 +5662,10 @@
 +#endif /* __FreeBSD__ */
 +
 +#endif
+Index: src/quickassist/utilities/libusdm_drv/qae_mem.h
+===================================================================
 --- /dev/null
-+++ b/quickassist/utilities/libusdm_drv/qae_mem.h
++++ src/quickassist/utilities/libusdm_drv/qae_mem.h
 @@ -0,0 +1,244 @@
 +/***************************************************************************
 + *
@@ -5881,8 +5911,10 @@
 +#endif
 +
 +#endif /* #ifndef QAE_MEM_H_ */
---- a/quickassist/include/cpa.h
-+++ b/quickassist/include/cpa.h
+Index: src/quickassist/include/cpa.h
+===================================================================
+--- src.orig/quickassist/include/cpa.h
++++ src/quickassist/include/cpa.h
 @@ -694,13 +694,21 @@ typedef enum _CpaInstanceEvent
       * implementation may send this event if the hardware device is about to
       * be reset.

@@ -1,6 +1,8 @@
---- a/quickassist/utilities/osal/include/Osal.h
-+++ b/quickassist/utilities/osal/include/Osal.h
-@@ -653,7 +653,7 @@
+Index: src/quickassist/utilities/osal/include/Osal.h
+===================================================================
+--- src.orig/quickassist/utilities/osal/include/Osal.h
++++ src/quickassist/utilities/osal/include/Osal.h
+@@ -653,7 +653,7 @@ osalMemSet (void *ptr, UINT8 filler, UIN
   *  Time
   *****************************/
  

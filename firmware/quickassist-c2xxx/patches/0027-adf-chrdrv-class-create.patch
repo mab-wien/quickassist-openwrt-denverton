@@ -1,6 +1,8 @@
---- a/quickassist/adf/drivers/common/linux/src/adf_chr_drv.c
-+++ b/quickassist/adf/drivers/common/linux/src/adf_chr_drv.c
-@@ -141,7 +141,7 @@
+Index: src/quickassist/adf/drivers/common/linux/src/adf_chr_drv.c
+===================================================================
+--- src.orig/quickassist/adf/drivers/common/linux/src/adf_chr_drv.c
++++ src/quickassist/adf/drivers/common/linux/src/adf_chr_drv.c
+@@ -141,7 +141,7 @@ int adf_chr_drv_create(adf_chr_drv_info_
                  return FAIL;
          }
  

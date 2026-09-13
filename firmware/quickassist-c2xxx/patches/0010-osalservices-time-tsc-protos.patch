@@ -1,6 +1,8 @@
---- a/quickassist/utilities/osal/include/Osal.h
-+++ b/quickassist/utilities/osal/include/Osal.h
-@@ -653,6 +653,9 @@
+Index: src/quickassist/utilities/osal/include/Osal.h
+===================================================================
+--- src.orig/quickassist/utilities/osal/include/Osal.h
++++ src/quickassist/utilities/osal/include/Osal.h
+@@ -653,6 +653,9 @@ osalMemSet (void *ptr, UINT8 filler, UIN
   *  Time
   *****************************/
  
@@ -10,8 +12,10 @@
  /* Retrieve current system time */
  OSAL_PUBLIC OSAL_STATUS
  osalTimeGet (OsalTimeval * pTime);
---- a/quickassist/utilities/osal/src/linux/kernel_space/OsalServices.c
-+++ b/quickassist/utilities/osal/src/linux/kernel_space/OsalServices.c
+Index: src/quickassist/utilities/osal/src/linux/kernel_space/OsalServices.c
+===================================================================
+--- src.orig/quickassist/utilities/osal/src/linux/kernel_space/OsalServices.c
++++ src/quickassist/utilities/osal/src/linux/kernel_space/OsalServices.c
 @@ -30,6 +30,7 @@
   *  version: QAT1.5.L.1.13.0-19
   */
@@ -20,7 +24,7 @@
  #include "OsalOsTypes.h"
  #include "OsalDevDrv.h"
  
-@@ -422,16 +423,11 @@
+@@ -422,16 +423,11 @@ osalTimeGet (OsalTimeval * pTime)
       * -- time_t   (type long, second)
       * -- suseconds_t (type long, usecond)
       */
@@ -40,7 +44,7 @@
      return OSAL_SUCCESS;
  }
  
-@@ -473,7 +469,7 @@
+@@ -473,7 +469,7 @@ osalTimestampGet (void)
  {
      UINT64 timestamp;
      /* Read the 64-bit LSB of the time stamp counter */

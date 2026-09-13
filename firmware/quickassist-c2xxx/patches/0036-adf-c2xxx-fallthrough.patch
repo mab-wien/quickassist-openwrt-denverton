@@ -1,6 +1,8 @@
---- a/quickassist/adf/platform/ACCELDEV/src/adf_c2xxx_hw_data.c
-+++ b/quickassist/adf/platform/ACCELDEV/src/adf_c2xxx_hw_data.c
-@@ -249,6 +249,7 @@
+Index: src/quickassist/adf/platform/ACCELDEV/src/adf_c2xxx_hw_data.c
+===================================================================
+--- src.orig/quickassist/adf/platform/ACCELDEV/src/adf_c2xxx_hw_data.c
++++ src/quickassist/adf/platform/ACCELDEV/src/adf_c2xxx_hw_data.c
+@@ -249,6 +249,7 @@ adf_c2xxx_getDevSKU(Cpa32U NumAccelerato
              {
                  return DEV_SKU_2;
              }

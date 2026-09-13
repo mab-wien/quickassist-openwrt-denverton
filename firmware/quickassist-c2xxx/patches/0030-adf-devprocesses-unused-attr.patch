@@ -1,6 +1,8 @@
---- a/quickassist/adf/drivers/common/linux/src/adf_dev_processes.c
-+++ b/quickassist/adf/drivers/common/linux/src/adf_dev_processes.c
-@@ -161,7 +161,7 @@
+Index: src/quickassist/adf/drivers/common/linux/src/adf_dev_processes.c
+===================================================================
+--- src.orig/quickassist/adf/drivers/common/linux/src/adf_dev_processes.c
++++ src/quickassist/adf/drivers/common/linux/src/adf_dev_processes.c
+@@ -161,7 +161,7 @@ static DECLARE_MUTEX(processes_list_sema
   * adf_processes_chrdev_unregister
   * Function unregisters character device interface
   */

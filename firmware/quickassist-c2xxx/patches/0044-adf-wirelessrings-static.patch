@@ -1,6 +1,8 @@
---- a/quickassist/adf/wireless/src/adf_wireless_rings.c
-+++ b/quickassist/adf/wireless/src/adf_wireless_rings.c
-@@ -92,7 +92,7 @@
+Index: src/quickassist/adf/wireless/src/adf_wireless_rings.c
+===================================================================
+--- src.orig/quickassist/adf/wireless/src/adf_wireless_rings.c
++++ src/quickassist/adf/wireless/src/adf_wireless_rings.c
+@@ -92,7 +92,7 @@ STATIC wireless_cy_instance_t *cy_instan
  /*
   * Dummy kernelspace callback for wireless rings
   */

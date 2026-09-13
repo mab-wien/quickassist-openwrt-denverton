@@ -1,5 +1,7 @@
---- a/quickassist/lookaside/access_layer/src/common/crypto/sym/lac_sym_dp.c
-+++ b/quickassist/lookaside/access_layer/src/common/crypto/sym/lac_sym_dp.c
+Index: src/quickassist/lookaside/access_layer/src/common/crypto/sym/lac_sym_dp.c
+===================================================================
+--- src.orig/quickassist/lookaside/access_layer/src/common/crypto/sym/lac_sym_dp.c
++++ src/quickassist/lookaside/access_layer/src/common/crypto/sym/lac_sym_dp.c
 @@ -99,6 +99,7 @@
  #include "lac_sal_types_crypto.h"
  #include "sal_service_state.h"
@@ -8,7 +10,7 @@
  
  typedef void (*write_ringMsgFunc_t)(CpaCySymDpOpData *pRequest,
            icp_qat_fw_la_bulk_req_t *pCurrentQatMsg,
-@@ -411,6 +412,11 @@
+@@ -411,6 +412,11 @@ LacDp_EnqueueParamCheck(const CpaCySymDp
   *
   *****************************************************************************/
  
@@ -20,7 +22,7 @@
  void
  LacDp_WriteRingMsgOpt(CpaCySymDpOpData *pRequest,icp_qat_fw_la_bulk_req_t
                        *pCurrentQatMsg,
-@@ -521,6 +527,11 @@
+@@ -521,6 +527,11 @@ LacDp_WriteRingMsgOpt(CpaCySymDpOpData *
   *
   *****************************************************************************/
  

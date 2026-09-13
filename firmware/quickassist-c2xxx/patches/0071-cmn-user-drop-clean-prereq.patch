@@ -1,6 +1,8 @@
---- a/quickassist/Makefile
-+++ b/quickassist/Makefile
-@@ -129,7 +129,7 @@
+Index: src/quickassist/Makefile
+===================================================================
+--- src.orig/quickassist/Makefile
++++ src/quickassist/Makefile
+@@ -129,7 +129,7 @@ install_scripts:
  #
  
  #userspace common memory library

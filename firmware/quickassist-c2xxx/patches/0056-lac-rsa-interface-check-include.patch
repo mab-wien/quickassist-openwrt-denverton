@@ -1,5 +1,7 @@
---- a/quickassist/lookaside/access_layer/src/common/crypto/asym/rsa/lac_rsa_interface_check.c
-+++ b/quickassist/lookaside/access_layer/src/common/crypto/asym/rsa/lac_rsa_interface_check.c
+Index: src/quickassist/lookaside/access_layer/src/common/crypto/asym/rsa/lac_rsa_interface_check.c
+===================================================================
+--- src.orig/quickassist/lookaside/access_layer/src/common/crypto/asym/rsa/lac_rsa_interface_check.c
++++ src/quickassist/lookaside/access_layer/src/common/crypto/asym/rsa/lac_rsa_interface_check.c
 @@ -80,10 +80,12 @@
  
  

@@ -1,5 +1,7 @@
---- a/quickassist/utilities/osal/src/linux/kernel_space/OsalThread.c
-+++ b/quickassist/utilities/osal/src/linux/kernel_space/OsalThread.c
+Index: src/quickassist/utilities/osal/src/linux/kernel_space/OsalThread.c
+===================================================================
+--- src.orig/quickassist/utilities/osal/src/linux/kernel_space/OsalThread.c
++++ src/quickassist/utilities/osal/src/linux/kernel_space/OsalThread.c
 @@ -43,8 +43,8 @@
  DECLARE_MUTEX (osalThreadMutex);
  DECLARE_MUTEX (osalThreadStopMutex);

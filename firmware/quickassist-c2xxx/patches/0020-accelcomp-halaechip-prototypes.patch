@@ -1,6 +1,8 @@
---- a/quickassist/utilities/downloader/Target_CoreLibs/halAe/accelcomp/halAeChip.h
-+++ b/quickassist/utilities/downloader/Target_CoreLibs/halAe/accelcomp/halAeChip.h
-@@ -204,4 +204,8 @@
+Index: src/quickassist/utilities/downloader/Target_CoreLibs/halAe/accelcomp/halAeChip.h
+===================================================================
+--- src.orig/quickassist/utilities/downloader/Target_CoreLibs/halAe/accelcomp/halAeChip.h
++++ src/quickassist/utilities/downloader/Target_CoreLibs/halAe/accelcomp/halAeChip.h
+@@ -204,4 +204,8 @@ typedef struct uof_encapuwblock_s{
  
  typedef uint64 import_var_type; 
  

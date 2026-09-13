@@ -1,6 +1,8 @@
---- a/quickassist/utilities/libusdm_drv/linux/Makefile
-+++ b/quickassist/utilities/libusdm_drv/linux/Makefile
-@@ -163,6 +163,12 @@
+Index: src/quickassist/utilities/libusdm_drv/linux/Makefile
+===================================================================
+--- src.orig/quickassist/utilities/libusdm_drv/linux/Makefile
++++ src/quickassist/utilities/libusdm_drv/linux/Makefile
+@@ -163,6 +163,12 @@ ifeq ($(OS),linux)
  # path and breaking kernel_space/qae_mem_utils.c on toolchains that do not
  # happen to find it some other way.
  EXTRA_CFLAGS+=$(INCLUDES) -Werror -ftree-ter

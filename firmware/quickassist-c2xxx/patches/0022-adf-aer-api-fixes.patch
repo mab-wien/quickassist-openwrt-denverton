@@ -1,6 +1,8 @@
---- a/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_aer.c
-+++ b/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_aer.c
-@@ -259,7 +259,7 @@
+Index: src/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_aer.c
+===================================================================
+--- src.orig/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_aer.c
++++ src/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_aer.c
+@@ -259,7 +259,7 @@ static pci_ers_result_t adf_slot_reset(s
                  ADF_ERROR("Can't find acceleration device\n");
                  return PCI_ERS_RESULT_DISCONNECT;
          }
@@ -9,7 +11,7 @@
          /* Reset device and wait for result */
          if (adf_aer_schedule_reset_dev(accel_dev, 1)) {
  
-@@ -308,9 +308,6 @@
+@@ -308,9 +308,6 @@ int adf_enable_aer(icp_accel_dev_t *acce
  
          drv = (struct pci_driver *)adf_driver;
          drv->err_handler = &adf_err_handler;
@@ -19,7 +21,7 @@
  #endif
          return SUCCESS;
  
-@@ -322,12 +319,6 @@
+@@ -322,12 +319,6 @@ int adf_enable_aer(icp_accel_dev_t *acce
   */
  void adf_disable_aer(icp_accel_dev_t *accel_dev)
  {

@@ -1,5 +1,7 @@
---- a/quickassist/lookaside/access_layer/src/common/crypto/sym/lac_sym_stats.c
-+++ b/quickassist/lookaside/access_layer/src/common/crypto/sym/lac_sym_stats.c
+Index: src/quickassist/lookaside/access_layer/src/common/crypto/sym/lac_sym_stats.c
+===================================================================
+--- src.orig/quickassist/lookaside/access_layer/src/common/crypto/sym/lac_sym_stats.c
++++ src/quickassist/lookaside/access_layer/src/common/crypto/sym/lac_sym_stats.c
 @@ -91,6 +91,7 @@
  #include "lac_sym_qat.h"
  #include "lac_sal_types_crypto.h"

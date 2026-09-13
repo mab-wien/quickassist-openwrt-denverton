@@ -1,5 +1,7 @@
---- a/quickassist/utilities/osal/src/linux/kernel_space/osalzlib/inflate.c
-+++ b/quickassist/utilities/osal/src/linux/kernel_space/osalzlib/inflate.c
+Index: src/quickassist/utilities/osal/src/linux/kernel_space/osalzlib/inflate.c
+===================================================================
+--- src.orig/quickassist/utilities/osal/src/linux/kernel_space/osalzlib/inflate.c
++++ src/quickassist/utilities/osal/src/linux/kernel_space/osalzlib/inflate.c
 @@ -79,6 +79,12 @@
  #include "inflate.h"
  #include "inffast.h"

@@ -1,6 +1,8 @@
---- a/quickassist/lookaside/access_layer/src/common/qat_ctrl/qat_init.c
-+++ b/quickassist/lookaside/access_layer/src/common/qat_ctrl/qat_init.c
-@@ -161,7 +161,7 @@
+Index: src/quickassist/lookaside/access_layer/src/common/qat_ctrl/qat_init.c
+===================================================================
+--- src.orig/quickassist/lookaside/access_layer/src/common/qat_ctrl/qat_init.c
++++ src/quickassist/lookaside/access_layer/src/common/qat_ctrl/qat_init.c
+@@ -161,7 +161,7 @@ QatCtrl_ResponseMsgHandler(icp_comms_tra
   * Init response handler function. The response message is checked
   * and the callback called.
   */
@@ -9,7 +11,7 @@
  QatCtrl_InitRespHandler(void *pRespMsg, icp_arch_if_request_t msgType)
  {
      CpaStatus status = CPA_STATUS_FAIL;
-@@ -230,7 +230,7 @@
+@@ -230,7 +230,7 @@ QatCtrl_ResponseCbSet(sal_qat_service_t*
  /*
   * Init Sync Callback function.
   */
@@ -18,7 +20,7 @@
  QatCtrl_InitSyncCb(void *pCallbackTag, CpaStatus status)
  {
      LacSync_GenWakeupSyncCaller(pCallbackTag, status);
-@@ -438,7 +438,7 @@
+@@ -438,7 +438,7 @@ QatCtrl_BuildAndSendMsg(CpaInstanceHandl
   * @pre @ref QatCtrl_Init() must have been called already
   *
   *****************************************************************************/
@@ -27,7 +29,7 @@
                                   Cpa32U activeAes, Cpa32U aeIndex)
  {
      *ShramMask = 0;
-@@ -497,7 +497,7 @@
+@@ -497,7 +497,7 @@ CpaStatus QatCtrl_BuildShramMask(Cpa64U
  /*
   * Build the SliceMask for the SET_AE_INFO msg
   */

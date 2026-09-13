@@ -1,5 +1,7 @@
---- a/quickassist/lookaside/access_layer/src/common/crypto/sym/drbg/lac_sym_drbg_general.c
-+++ b/quickassist/lookaside/access_layer/src/common/crypto/sym/drbg/lac_sym_drbg_general.c
+Index: src/quickassist/lookaside/access_layer/src/common/crypto/sym/drbg/lac_sym_drbg_general.c
+===================================================================
+--- src.orig/quickassist/lookaside/access_layer/src/common/crypto/sym/drbg/lac_sym_drbg_general.c
++++ src/quickassist/lookaside/access_layer/src/common/crypto/sym/drbg/lac_sym_drbg_general.c
 @@ -101,6 +101,7 @@
  #include "lac_sal_types_crypto.h"
  #include "sal_statistics.h"
@@ -8,7 +10,7 @@
  
  /* Authentication key used for AES CBC MAC operation in BCC function;
   * depending on implementation it is used either in full or only first
-@@ -537,7 +538,10 @@
+@@ -537,7 +538,10 @@ LacDrbg_InitSymSession(sal_crypto_servic
  #if defined(__INTEL_COMPILER) && (__INTEL_COMPILER < 1300)
  #pragma warning(enable)
  #endif
@@ -20,7 +22,7 @@
  
      /* Prepare session setup data */
  
-@@ -578,6 +582,7 @@
+@@ -578,6 +582,7 @@ LacDrbg_InitSymSession(sal_crypto_servic
      if (physAddress == 0)
      {
          LAC_LOG_ERROR("Unable to get the physical address of the session\n");
@@ -28,7 +30,7 @@
          return CPA_STATUS_FAIL;
      }
  
-@@ -617,6 +622,8 @@
+@@ -617,6 +622,8 @@ LacDrbg_InitSymSession(sal_crypto_servic
      status = LacAlgChain_SessionInit((CpaInstanceHandle)pService,
                  &sessionSetupData, pSessionDesc);
  

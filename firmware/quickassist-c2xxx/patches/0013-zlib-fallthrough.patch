@@ -1,6 +1,8 @@
---- a/quickassist/utilities/osal/src/linux/kernel_space/OsalZlib.c
-+++ b/quickassist/utilities/osal/src/linux/kernel_space/OsalZlib.c
-@@ -211,6 +211,7 @@
+Index: src/quickassist/utilities/osal/src/linux/kernel_space/OsalZlib.c
+===================================================================
+--- src.orig/quickassist/utilities/osal/src/linux/kernel_space/OsalZlib.c
++++ src/quickassist/utilities/osal/src/linux/kernel_space/OsalZlib.c
+@@ -211,6 +211,7 @@ osalZlibInflate(void *srcBufferList,
                             srcBuffList->pBuffers[srcBuffIdx].dataLenInBytes;
                     break;
                 }

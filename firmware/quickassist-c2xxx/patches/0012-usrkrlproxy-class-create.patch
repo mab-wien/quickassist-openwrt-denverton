@@ -1,6 +1,8 @@
---- a/quickassist/utilities/osal/src/linux/kernel_space/OsalUsrKrlProxy.c
-+++ b/quickassist/utilities/osal/src/linux/kernel_space/OsalUsrKrlProxy.c
-@@ -525,7 +525,7 @@
+Index: src/quickassist/utilities/osal/src/linux/kernel_space/OsalUsrKrlProxy.c
+===================================================================
+--- src.orig/quickassist/utilities/osal/src/linux/kernel_space/OsalUsrKrlProxy.c
++++ src/quickassist/utilities/osal/src/linux/kernel_space/OsalUsrKrlProxy.c
+@@ -525,7 +525,7 @@ chr_drv_create_class(chr_drv_info_t* drv
      OSAL_LOCAL_ENSURE(drv_info,
                "chr_drv_create_class(): Invalid parameter value ",
                OSAL_FAIL);

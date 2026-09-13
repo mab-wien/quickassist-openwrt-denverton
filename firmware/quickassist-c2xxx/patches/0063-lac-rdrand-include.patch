@@ -1,5 +1,7 @@
---- a/quickassist/lookaside/access_layer/src/common/crypto/sym/drbg/lac_sym_rdrand.c
-+++ b/quickassist/lookaside/access_layer/src/common/crypto/sym/drbg/lac_sym_rdrand.c
+Index: src/quickassist/lookaside/access_layer/src/common/crypto/sym/drbg/lac_sym_rdrand.c
+===================================================================
+--- src.orig/quickassist/lookaside/access_layer/src/common/crypto/sym/drbg/lac_sym_rdrand.c
++++ src/quickassist/lookaside/access_layer/src/common/crypto/sym/drbg/lac_sym_rdrand.c
 @@ -79,6 +79,7 @@
  */
  #include "cpa_types.h"

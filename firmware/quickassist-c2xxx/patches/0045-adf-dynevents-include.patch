@@ -1,5 +1,7 @@
---- a/quickassist/adf/dyn/src/adf_dyn_events.c
-+++ b/quickassist/adf/dyn/src/adf_dyn_events.c
+Index: src/quickassist/adf/dyn/src/adf_dyn_events.c
+===================================================================
+--- src.orig/quickassist/adf/dyn/src/adf_dyn_events.c
++++ src/quickassist/adf/dyn/src/adf_dyn_events.c
 @@ -76,6 +76,7 @@
  #include "adf_cfg.h"
  #include "adf_platform.h"

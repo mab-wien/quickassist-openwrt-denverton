@@ -1,6 +1,8 @@
---- a/quickassist/adf/accel_mgr/src/adf_init.c
-+++ b/quickassist/adf/accel_mgr/src/adf_init.c
-@@ -435,7 +435,7 @@
+Index: src/quickassist/adf/accel_mgr/src/adf_init.c
+===================================================================
+--- src.orig/quickassist/adf/accel_mgr/src/adf_init.c
++++ src/quickassist/adf/accel_mgr/src/adf_init.c
+@@ -435,7 +435,7 @@ icp_adf_subsystemUnregister(subservice_r
   * adf_cfgAddInternalValues
   * Add internal config values to general section of the given accel dev
   */

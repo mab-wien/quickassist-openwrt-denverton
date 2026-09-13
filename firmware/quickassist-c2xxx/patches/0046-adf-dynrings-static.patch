@@ -1,6 +1,8 @@
---- a/quickassist/adf/dyn/src/adf_dyn_rings.c
-+++ b/quickassist/adf/dyn/src/adf_dyn_rings.c
-@@ -94,7 +94,7 @@
+Index: src/quickassist/adf/dyn/src/adf_dyn_rings.c
+===================================================================
+--- src.orig/quickassist/adf/dyn/src/adf_dyn_rings.c
++++ src/quickassist/adf/dyn/src/adf_dyn_rings.c
+@@ -94,7 +94,7 @@ STATIC dyn_dc_instance_t *dc_instance_ta
  /*
   * Dummy kernelspace callback for dyn rings
   */

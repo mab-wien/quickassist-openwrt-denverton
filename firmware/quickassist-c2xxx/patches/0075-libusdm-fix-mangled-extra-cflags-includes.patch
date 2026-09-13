@@ -1,6 +1,8 @@
---- a/quickassist/utilities/libusdm_drv/linux/Makefile
-+++ b/quickassist/utilities/libusdm_drv/linux/Makefile
-@@ -157,7 +157,12 @@
+Index: src/quickassist/utilities/libusdm_drv/linux/Makefile
+===================================================================
+--- src.orig/quickassist/utilities/libusdm_drv/linux/Makefile
++++ src/quickassist/utilities/libusdm_drv/linux/Makefile
+@@ -157,7 +157,12 @@ export OUTPUT_NAME
  #kernel space rules here
  #produce two artefacts: module and static library and copy them
  ifeq ($(OS),linux)

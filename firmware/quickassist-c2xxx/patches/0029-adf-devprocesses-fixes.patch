@@ -1,5 +1,7 @@
---- a/quickassist/adf/drivers/common/linux/src/adf_dev_processes.c
-+++ b/quickassist/adf/drivers/common/linux/src/adf_dev_processes.c
+Index: src/quickassist/adf/drivers/common/linux/src/adf_dev_processes.c
+===================================================================
+--- src.orig/quickassist/adf/drivers/common/linux/src/adf_dev_processes.c
++++ src/quickassist/adf/drivers/common/linux/src/adf_dev_processes.c
 @@ -80,6 +80,7 @@
  #include "icp_adf_cfg.h"
  #include "icp_adf_init.h"
@@ -8,7 +10,7 @@
  #include <linux/list.h>
  
  #define ADF_DEV_PROCESSES_NAME             ("icp_dev_processes")
-@@ -151,7 +152,7 @@
+@@ -151,7 +152,7 @@ STATIC LIST_HEAD(processes_list);
   * Mutex guarding the list of processes connected to the driver
   */
  #if LINUX_VERSION_CODE > KERNEL_VERSION(2,6,35)
@@ -17,7 +19,7 @@
  #else
  static DECLARE_MUTEX(processes_list_sema);
  #endif
-@@ -160,7 +161,7 @@
+@@ -160,7 +161,7 @@ static DECLARE_MUTEX(processes_list_sema
   * adf_processes_chrdev_unregister
   * Function unregisters character device interface
   */

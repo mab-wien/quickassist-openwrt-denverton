@@ -1,6 +1,8 @@
---- a/quickassist/utilities/libusdm_drv/linux/Makefile
-+++ b/quickassist/utilities/libusdm_drv/linux/Makefile
-@@ -105,8 +105,6 @@
+Index: src/quickassist/utilities/libusdm_drv/linux/Makefile
+===================================================================
+--- src.orig/quickassist/utilities/libusdm_drv/linux/Makefile
++++ src/quickassist/utilities/libusdm_drv/linux/Makefile
+@@ -105,8 +105,6 @@ endif
  
  ifeq ($(ICP_QDM_IOMMU), 1)
  EXTRA_CFLAGS += -DICP_QDM_IOMMU

@@ -1,6 +1,8 @@
---- a/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_drv.c
-+++ b/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_drv.c
-@@ -320,9 +320,9 @@
+Index: src/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_drv.c
+===================================================================
+--- src.orig/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_drv.c
++++ src/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_drv.c
+@@ -320,9 +320,9 @@ static int adf_get_dev_node_id(struct pc
  
          /* if there is only one physical processor don't need
           * to do any further calculations */
@@ -12,7 +14,7 @@
          if (0 != bus_per_cpu) {
                  return pdev->bus->number / bus_per_cpu;
          }
-@@ -361,8 +361,8 @@
+@@ -361,8 +361,8 @@ static int adf_vf_probe(struct pci_dev *
                  return -ENOMEM;
          }
  
@@ -23,7 +25,7 @@
  
                          ADF_ERROR("No usable DMA configuration in VF,"
                                        "aborting\n");
-@@ -370,11 +370,11 @@
+@@ -370,11 +370,11 @@ static int adf_vf_probe(struct pci_dev *
                          return -EIO;
                  }
                  else {
@@ -37,7 +39,7 @@
          }
  
          pci_set_master(pdev);
-@@ -685,8 +685,8 @@
+@@ -685,8 +685,8 @@ static int adf_probe(struct pci_dev *pde
  #if LINUX_VERSION_CODE <= KERNEL_VERSION(2,6,23)
          #define DMA_BIT_MASK(n) (((n) == 64) ? ~0ULL : ((1ULL<<(n))-1))
  #endif
@@ -48,7 +50,7 @@
  
                          ADF_ERROR("No usable DMA configuration,"
                                        "aborting\n");
-@@ -694,11 +694,11 @@
+@@ -694,11 +694,11 @@ static int adf_probe(struct pci_dev *pde
                          return -EIO;
                  }
                  else {

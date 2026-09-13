@@ -1,6 +1,8 @@
---- a/quickassist/utilities/downloader/Target_CoreLibs/halAe/halAe.c
-+++ b/quickassist/utilities/downloader/Target_CoreLibs/halAe/halAe.c
-@@ -3395,7 +3395,7 @@
+Index: src/quickassist/utilities/downloader/Target_CoreLibs/halAe/halAe.c
+===================================================================
+--- src.orig/quickassist/utilities/downloader/Target_CoreLibs/halAe/halAe.c
++++ src/quickassist/utilities/downloader/Target_CoreLibs/halAe/halAe.c
+@@ -3395,7 +3395,7 @@ halAe_Start(icp_firml_handle_t *handle,
   * @retval HALAE_BADARG Bad function argument
   * 
   *****************************************************************************/
@@ -9,9 +11,11 @@
  halAe_StartAuthenticatedME (icp_firml_handle_t *handle, 
              unsigned char ae)
  {
---- a/quickassist/utilities/downloader/Target_CoreLibs/halAe/include/linux/halAe_platform.h
-+++ b/quickassist/utilities/downloader/Target_CoreLibs/halAe/include/linux/halAe_platform.h
-@@ -144,6 +144,7 @@
+Index: src/quickassist/utilities/downloader/Target_CoreLibs/halAe/include/linux/halAe_platform.h
+===================================================================
+--- src.orig/quickassist/utilities/downloader/Target_CoreLibs/halAe/include/linux/halAe_platform.h
++++ src/quickassist/utilities/downloader/Target_CoreLibs/halAe/include/linux/halAe_platform.h
+@@ -144,6 +144,7 @@ typedef unsigned char   uchar;
  
  int halAe_getPciCsr(icp_firml_handle_t *handle, unsigned int offset, unsigned int numBytes, unsigned int *data);
  int halAe_putPciCsr(icp_firml_handle_t *handle, unsigned int offset, unsigned int numBytes, unsigned int data);
@@ -19,9 +23,11 @@
  #define GET_PCI_CSR halAe_getPciCsr
  #define PUT_PCI_CSR halAe_putPciCsr
  
---- a/quickassist/utilities/downloader/include/halAeApi.h
-+++ b/quickassist/utilities/downloader/include/halAeApi.h
-@@ -160,6 +160,21 @@
+Index: src/quickassist/utilities/downloader/include/halAeApi.h
+===================================================================
+--- src.orig/quickassist/utilities/downloader/include/halAeApi.h
++++ src/quickassist/utilities/downloader/include/halAeApi.h
+@@ -160,6 +160,21 @@ typedef struct batch_init_s{
  extern "C" {
  #endif
  

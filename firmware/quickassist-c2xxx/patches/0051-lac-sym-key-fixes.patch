@@ -1,5 +1,7 @@
---- a/quickassist/lookaside/access_layer/src/common/crypto/sym/key/lac_sym_key.c
-+++ b/quickassist/lookaside/access_layer/src/common/crypto/sym/key/lac_sym_key.c
+Index: src/quickassist/lookaside/access_layer/src/common/crypto/sym/key/lac_sym_key.c
+===================================================================
+--- src.orig/quickassist/lookaside/access_layer/src/common/crypto/sym/key/lac_sym_key.c
++++ src/quickassist/lookaside/access_layer/src/common/crypto/sym/key/lac_sym_key.c
 @@ -98,6 +98,7 @@
  #include "lac_sym_qat_key.h"
  #include "lac_sym_hash_defs.h"
@@ -8,7 +10,7 @@
  
  /* Number of statistics */
  #define LAC_KEY_NUM_STATS (sizeof(CpaCyKeyGenStats64) / sizeof(Cpa64U))
-@@ -205,7 +206,7 @@
+@@ -205,7 +206,7 @@ LacSymKey_SslTlsSync(CpaInstanceHandle i
   * @param[in] instanceHandle_in        user supplied handle.
   * @retval    CpaInstanceHandle        the instance handle
   */
@@ -17,7 +19,7 @@
  LacKey_GetHandle(CpaInstanceHandle instanceHandle_in)
  {
      CpaInstanceHandle instanceHandle = NULL;
-@@ -1512,7 +1513,7 @@
+@@ -1512,7 +1513,7 @@ LacSymKey_KeyGenSslTls_GenCommon(CpaInst
                  0, /* auth len*/
                  CPA_FALSE,
                  NULL,
@@ -26,7 +28,7 @@
          /* Set up the labels and their length */
          if (CPA_CY_KEY_TLS_OP_USER_DEFINED == pKeyGenTlsOpData->tlsOp)
          {
-@@ -1959,7 +1960,7 @@
+@@ -1959,7 +1960,7 @@ cpaCyKeyGenSsl(const CpaInstanceHandle i
          pKeyGenCb,
          pCallbackTag,
          LAC_CONST_PTR_CAST(pKeyGenSslOpData),
@@ -35,7 +37,7 @@
          pGeneratedKeyBuffer,
          ICP_QAT_FW_LA_CMD_SSL3_KEY_DERIVE);
  }
-@@ -2030,7 +2031,7 @@
+@@ -2030,7 +2031,7 @@ cpaCyKeyGenTls(const CpaInstanceHandle i
                      pKeyGenCb,
                      pCallbackTag,
                      LAC_CONST_PTR_CAST(pKeyGenTlsOpData),
