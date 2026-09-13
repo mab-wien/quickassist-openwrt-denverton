@@ -72,6 +72,7 @@ jobs:
           CONFIG_PACKAGE_kmod-crypto-qat-c2xxx=y
           CONFIG_PACKAGE_kmod-crypto-qat-c2xxx-usdm=y
           CONFIG_PACKAGE_openssl-qat=y
+          CONFIG_QAT_ENGINE_ENABLE_WARNINGS=y
           EOF
           make defconfig
           grep -E 'QAT_C2XXX|quickassist-c2xxx|openssl-qat|kmod-crypto-qat' .config
