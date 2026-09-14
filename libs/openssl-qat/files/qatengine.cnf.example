@@ -1,0 +1,32 @@
+# Example OpenSSL engine configuration snippet for the Intel QuickAssist
+# (qatengine) OpenSSL engine.
+#
+# QAT_Engine defaults to config section name "SHIM" (see
+# qat_config_section_name in e_qat.c), but this driver's own ADF config
+# file (/usr/icp/quickassist/config/*.conf, installed by the
+# quickassist-c2xxx/quickassist-c3xxx package) defines the userspace
+# crypto instance under section "[SSL]" instead. Without pointing the
+# engine at the matching section name, cpaCyGetNumInstances() finds no
+# instances and the engine reports "[ unavailable ]" even though the
+# driver and hardware are working correctly.
+#
+# To use: either `.include` this file from /etc/ssl/openssl.cnf's
+# top-level (after setting `openssl_conf = openssl_init`), or copy the
+# [qat_section] block below into an existing engine_section stanza.
+#
+# See: openssl engine -t -pre SET_CONFIGURATION_SECTION_NAME:SSL qatengine
+
+openssl_conf = openssl_init
+
+[openssl_init]
+engines = engine_section
+
+[engine_section]
+qat = qat_section
+
+[qat_section]
+engine_id = qatengine
+dynamic_path = /usr/lib/engines-3/qatengine.so
+default_algorithms = ALL
+init = 1
+SET_CONFIGURATION_SECTION_NAME = SSL
