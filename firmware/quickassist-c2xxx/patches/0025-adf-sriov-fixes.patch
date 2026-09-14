@@ -1,7 +1,10 @@
-Index: src/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_sriov_drv.c
-===================================================================
---- src.orig/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_sriov_drv.c
-+++ src/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_sriov_drv.c
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Mark Abe <github@mab.wien>
+Date: Sat, 12 Sep 2026 00:00:00 +0200
+Subject: [PATCH] adf sriov fixes
+
+--- a/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_sriov_drv.c
++++ b/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_sriov_drv.c
 @@ -81,6 +81,7 @@
  #include "adf_platform.h"
  #include "adf_ETring_ap.h"

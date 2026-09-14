@@ -1,7 +1,10 @@
-Index: src/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_aer.c
-===================================================================
---- src.orig/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_aer.c
-+++ src/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_aer.c
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Mark Abe <github@mab.wien>
+Date: Sat, 12 Sep 2026 00:00:00 +0200
+Subject: [PATCH] adf aer api fixes
+
+--- a/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_aer.c
++++ b/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_aer.c
 @@ -259,7 +259,7 @@ static pci_ers_result_t adf_slot_reset(s
                  ADF_ERROR("Can't find acceleration device\n");
                  return PCI_ERS_RESULT_DISCONNECT;

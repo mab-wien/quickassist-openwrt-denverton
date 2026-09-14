@@ -1,7 +1,10 @@
-Index: src/quickassist/lookaside/access_layer/src/common/qat_ctrl/qat_init.c
-===================================================================
---- src.orig/quickassist/lookaside/access_layer/src/common/qat_ctrl/qat_init.c
-+++ src/quickassist/lookaside/access_layer/src/common/qat_ctrl/qat_init.c
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Mark Abe <github@mab.wien>
+Date: Sat, 12 Sep 2026 00:00:00 +0200
+Subject: [PATCH] lac qatctrl init static
+
+--- a/quickassist/lookaside/access_layer/src/common/qat_ctrl/qat_init.c
++++ b/quickassist/lookaside/access_layer/src/common/qat_ctrl/qat_init.c
 @@ -161,7 +161,7 @@ QatCtrl_ResponseMsgHandler(icp_comms_tra
   * Init response handler function. The response message is checked
   * and the callback called.

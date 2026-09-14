@@ -1,7 +1,10 @@
-Index: src/multibuff_ecx.c
-===================================================================
---- src.orig/multibuff_ecx.c
-+++ src/multibuff_ecx.c
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Mark Abe <github@mab.wien>
+Date: Sat, 12 Sep 2026 00:00:00 +0200
+Subject: [PATCH] musl sched yield
+
+--- a/multibuff_ecx.c
++++ b/multibuff_ecx.c
 @@ -51,6 +51,7 @@
  #define __USE_GNU
  
@@ -28,10 +31,8 @@ Index: src/multibuff_ecx.c
      } while (QAT_CHK_JOB_RESUMED_UNEXPECTEDLY(job_ret));
  
      DEBUG("Finished: %p status = %d\n", x25519_derive_req, sts);
-Index: src/multibuff_rsa.c
-===================================================================
---- src.orig/multibuff_rsa.c
-+++ src/multibuff_rsa.c
+--- a/multibuff_rsa.c
++++ b/multibuff_rsa.c
 @@ -51,6 +51,7 @@
  #define __USE_GNU
  
@@ -76,10 +77,8 @@ Index: src/multibuff_rsa.c
      } while (QAT_CHK_JOB_RESUMED_UNEXPECTEDLY(job_ret));
  
      DEBUG("Finished: %p status = %d\n", rsa_pub_req, sts);
-Index: src/qat_asym_common.c
-===================================================================
---- src.orig/qat_asym_common.c
-+++ src/qat_asym_common.c
+--- a/qat_asym_common.c
++++ b/qat_asym_common.c
 @@ -53,6 +53,7 @@
  #endif
  
@@ -100,10 +99,8 @@ Index: src/qat_asym_common.c
          }
      }
      while (!op_done.flag ||
-Index: src/qat_ciphers.c
-===================================================================
---- src.orig/qat_ciphers.c
-+++ src/qat_ciphers.c
+--- a/qat_ciphers.c
++++ b/qat_ciphers.c
 @@ -62,6 +62,7 @@
  # define _GNU_SOURCE
  #endif
@@ -124,10 +121,8 @@ Index: src/qat_ciphers.c
          }
      } while (!done.opDone.flag ||
               QAT_CHK_JOB_RESUMED_UNEXPECTEDLY(job_ret));
-Index: src/qat_dh.c
-===================================================================
---- src.orig/qat_dh.c
-+++ src/qat_dh.c
+--- a/qat_dh.c
++++ b/qat_dh.c
 @@ -48,6 +48,7 @@
  # define _GNU_SOURCE
  #endif
@@ -160,10 +155,8 @@ Index: src/qat_dh.c
          }
      }
      while (!op_done.flag ||
-Index: src/qat_dsa.c
-===================================================================
---- src.orig/qat_dsa.c
-+++ src/qat_dsa.c
+--- a/qat_dsa.c
++++ b/qat_dsa.c
 @@ -48,6 +48,7 @@
  # define _GNU_SOURCE
  #endif
@@ -196,10 +189,8 @@ Index: src/qat_dsa.c
          }
      }
      while (!op_done.flag ||
-Index: src/qat_ec.c
-===================================================================
---- src.orig/qat_ec.c
-+++ src/qat_ec.c
+--- a/qat_ec.c
++++ b/qat_ec.c
 @@ -47,6 +47,7 @@
  # define _GNU_SOURCE
  #endif
@@ -244,10 +235,8 @@ Index: src/qat_ec.c
          }
      }
      while (!op_done.flag ||
-Index: src/qat_ecx.c
-===================================================================
---- src.orig/qat_ecx.c
-+++ src/qat_ecx.c
+--- a/qat_ecx.c
++++ b/qat_ecx.c
 @@ -47,6 +47,7 @@
  # define _GNU_SOURCE
  #endif
@@ -292,10 +281,8 @@ Index: src/qat_ecx.c
          }
      }
      while (!op_done.flag ||
-Index: src/qat_gcm.c
-===================================================================
---- src.orig/qat_gcm.c
-+++ src/qat_gcm.c
+--- a/qat_gcm.c
++++ b/qat_gcm.c
 @@ -48,6 +48,7 @@
  #endif
  #include <string.h>
@@ -328,10 +315,8 @@ Index: src/qat_gcm.c
                  }
              } while (!op_done.flag ||
                       QAT_CHK_JOB_RESUMED_UNEXPECTEDLY(job_ret));
-Index: src/qat_hkdf.c
-===================================================================
---- src.orig/qat_hkdf.c
-+++ src/qat_hkdf.c
+--- a/qat_hkdf.c
++++ b/qat_hkdf.c
 @@ -47,6 +47,7 @@
  # define _GNU_SOURCE
  #endif
@@ -352,10 +337,8 @@ Index: src/qat_hkdf.c
          }
      }
      while (!op_done.flag ||
-Index: src/qat_prf.c
-===================================================================
---- src.orig/qat_prf.c
-+++ src/qat_prf.c
+--- a/qat_prf.c
++++ b/qat_prf.c
 @@ -47,6 +47,7 @@
  # define _GNU_SOURCE
  #endif
@@ -376,10 +359,8 @@ Index: src/qat_prf.c
          }
      }
      while (!op_done.flag ||
-Index: src/qat_rsa.c
-===================================================================
---- src.orig/qat_rsa.c
-+++ src/qat_rsa.c
+--- a/qat_rsa.c
++++ b/qat_rsa.c
 @@ -51,6 +51,7 @@
  #define __USE_GNU
  
@@ -412,10 +393,8 @@ Index: src/qat_rsa.c
              }
          }
      } while (!op_done.flag ||
-Index: src/qat_rsa_crt.c
-===================================================================
---- src.orig/qat_rsa_crt.c
-+++ src/qat_rsa_crt.c
+--- a/qat_rsa_crt.c
++++ b/qat_rsa_crt.c
 @@ -50,6 +50,7 @@
  #define __USE_GNU
  

@@ -1,7 +1,10 @@
-Index: src/qat_rsa.c
-===================================================================
---- src.orig/qat_rsa.c
-+++ src/qat_rsa.c
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Mark Abe <github@mab.wien>
+Date: Sat, 12 Sep 2026 00:00:00 +0200
+Subject: [PATCH] rsa remove sslv23 padding
+
+--- a/qat_rsa.c
++++ b/qat_rsa.c
 @@ -420,7 +420,6 @@ build_decrypt_op_buf(int flen, const uns
      if ((padding != RSA_NO_PADDING) &&
          (padding != RSA_PKCS1_PADDING) &&

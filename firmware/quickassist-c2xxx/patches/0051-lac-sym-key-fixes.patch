@@ -1,7 +1,10 @@
-Index: src/quickassist/lookaside/access_layer/src/common/crypto/sym/key/lac_sym_key.c
-===================================================================
---- src.orig/quickassist/lookaside/access_layer/src/common/crypto/sym/key/lac_sym_key.c
-+++ src/quickassist/lookaside/access_layer/src/common/crypto/sym/key/lac_sym_key.c
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Mark Abe <github@mab.wien>
+Date: Sat, 12 Sep 2026 00:00:00 +0200
+Subject: [PATCH] lac sym key fixes
+
+--- a/quickassist/lookaside/access_layer/src/common/crypto/sym/key/lac_sym_key.c
++++ b/quickassist/lookaside/access_layer/src/common/crypto/sym/key/lac_sym_key.c
 @@ -98,6 +98,7 @@
  #include "lac_sym_qat_key.h"
  #include "lac_sym_hash_defs.h"

@@ -1,7 +1,10 @@
-Index: src/quickassist/utilities/osal/src/linux/kernel_space/osalzlib/inflate.c
-===================================================================
---- src.orig/quickassist/utilities/osal/src/linux/kernel_space/osalzlib/inflate.c
-+++ src/quickassist/utilities/osal/src/linux/kernel_space/osalzlib/inflate.c
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Mark Abe <github@mab.wien>
+Date: Sat, 12 Sep 2026 00:00:00 +0200
+Subject: [PATCH] inflate fallthrough pragma
+
+--- a/quickassist/utilities/osal/src/linux/kernel_space/osalzlib/inflate.c
++++ b/quickassist/utilities/osal/src/linux/kernel_space/osalzlib/inflate.c
 @@ -79,6 +79,12 @@
  #include "inflate.h"
  #include "inffast.h"

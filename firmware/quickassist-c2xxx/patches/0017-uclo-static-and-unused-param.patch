@@ -1,7 +1,10 @@
-Index: src/quickassist/utilities/downloader/Target_CoreLibs/uclo/uclo.c
-===================================================================
---- src.orig/quickassist/utilities/downloader/Target_CoreLibs/uclo/uclo.c
-+++ src/quickassist/utilities/downloader/Target_CoreLibs/uclo/uclo.c
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Mark Abe <github@mab.wien>
+Date: Sat, 12 Sep 2026 00:00:00 +0200
+Subject: [PATCH] uclo static and unused param
+
+--- a/quickassist/utilities/downloader/Target_CoreLibs/uclo/uclo.c
++++ b/quickassist/utilities/downloader/Target_CoreLibs/uclo/uclo.c
 @@ -5584,7 +5584,7 @@ UcLo_computeFreeUstore(icp_firml_handle_
   * 
   * 

@@ -1,7 +1,10 @@
-Index: src/quickassist/lookaside/access_layer/src/common/crypto/sym/lac_sym_dp.c
-===================================================================
---- src.orig/quickassist/lookaside/access_layer/src/common/crypto/sym/lac_sym_dp.c
-+++ src/quickassist/lookaside/access_layer/src/common/crypto/sym/lac_sym_dp.c
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Mark Abe <github@mab.wien>
+Date: Sat, 12 Sep 2026 00:00:00 +0200
+Subject: [PATCH] lac sym dp fixes
+
+--- a/quickassist/lookaside/access_layer/src/common/crypto/sym/lac_sym_dp.c
++++ b/quickassist/lookaside/access_layer/src/common/crypto/sym/lac_sym_dp.c
 @@ -99,6 +99,7 @@
  #include "lac_sal_types_crypto.h"
  #include "sal_service_state.h"

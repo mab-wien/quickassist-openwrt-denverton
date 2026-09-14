@@ -1,7 +1,10 @@
-Index: src/quickassist/lookaside/access_layer/include/icp_sal_poll.h
-===================================================================
---- src.orig/quickassist/lookaside/access_layer/include/icp_sal_poll.h
-+++ src/quickassist/lookaside/access_layer/include/icp_sal_poll.h
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Mark Abe <github@mab.wien>
+Date: Sat, 12 Sep 2026 00:00:00 +0200
+Subject: [PATCH] lac poll dp type fix
+
+--- a/quickassist/lookaside/access_layer/include/icp_sal_poll.h
++++ b/quickassist/lookaside/access_layer/include/icp_sal_poll.h
 @@ -165,7 +165,7 @@ icp_sal_CyPollInstance(CpaInstanceHandle
    *************************************************************************/
  CpaStatus

@@ -1,7 +1,10 @@
-Index: src/quickassist/utilities/osal/src/linux/kernel_space/OsalCryptoInterface.c
-===================================================================
---- src.orig/quickassist/utilities/osal/src/linux/kernel_space/OsalCryptoInterface.c
-+++ src/quickassist/utilities/osal/src/linux/kernel_space/OsalCryptoInterface.c
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Mark Abe <github@mab.wien>
+Date: Sat, 12 Sep 2026 00:00:00 +0200
+Subject: [PATCH] osal kernel crypto headers
+
+--- a/quickassist/utilities/osal/src/linux/kernel_space/OsalCryptoInterface.c
++++ b/quickassist/utilities/osal/src/linux/kernel_space/OsalCryptoInterface.c
 @@ -31,13 +31,13 @@
  
  #include "Osal.h"

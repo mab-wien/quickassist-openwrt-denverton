@@ -1,7 +1,10 @@
-Index: src/quickassist/lookaside/access_layer/src/sample_code/performance/qae/linux/kernel_space/qae_mem_drv.c
-===================================================================
---- src.orig/quickassist/lookaside/access_layer/src/sample_code/performance/qae/linux/kernel_space/qae_mem_drv.c
-+++ src/quickassist/lookaside/access_layer/src/sample_code/performance/qae/linux/kernel_space/qae_mem_drv.c
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Mark Abe <github@mab.wien>
+Date: Sat, 12 Sep 2026 00:00:00 +0200
+Subject: [PATCH] samplecode qae mem drv fixes
+
+--- a/quickassist/lookaside/access_layer/src/sample_code/performance/qae/linux/kernel_space/qae_mem_drv.c
++++ b/quickassist/lookaside/access_layer/src/sample_code/performance/qae/linux/kernel_space/qae_mem_drv.c
 @@ -70,6 +70,9 @@
   */
  

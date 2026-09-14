@@ -1,7 +1,10 @@
-Index: src/quickassist/utilities/downloader/Target_CoreLibs/halAe/halMemScrub.c
-===================================================================
---- src.orig/quickassist/utilities/downloader/Target_CoreLibs/halAe/halMemScrub.c
-+++ src/quickassist/utilities/downloader/Target_CoreLibs/halAe/halMemScrub.c
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Mark Abe <github@mab.wien>
+Date: Sat, 12 Sep 2026 00:00:00 +0200
+Subject: [PATCH] halmemscrub prototypes
+
+--- a/quickassist/utilities/downloader/Target_CoreLibs/halAe/halMemScrub.c
++++ b/quickassist/utilities/downloader/Target_CoreLibs/halAe/halMemScrub.c
 @@ -144,7 +144,7 @@ halMem_getCsrName(unsigned int CSR_offse
  * 
  * 
@@ -29,10 +32,8 @@ Index: src/quickassist/utilities/downloader/Target_CoreLibs/halAe/halMemScrub.c
  halMem_ScrubSharedRam(icp_firml_handle_t *handle)
  {
      int Status = HALMEM_SUCCESS, halAeStatus = HALAE_SUCCESS;
-Index: src/quickassist/utilities/downloader/Target_CoreLibs/halAe/halMemScrub.h
-===================================================================
---- src.orig/quickassist/utilities/downloader/Target_CoreLibs/halAe/halMemScrub.h
-+++ src/quickassist/utilities/downloader/Target_CoreLibs/halAe/halMemScrub.h
+--- a/quickassist/utilities/downloader/Target_CoreLibs/halAe/halMemScrub.h
++++ b/quickassist/utilities/downloader/Target_CoreLibs/halAe/halMemScrub.h
 @@ -210,6 +210,15 @@ int
  halMem_InitMemory(icp_firml_handle_t *handle,
                         QAT_MEM_TYPE QatMemType);
