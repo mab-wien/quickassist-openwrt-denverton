@@ -1,7 +1,10 @@
-Index: src/quickassist/Makefile
-===================================================================
---- src.orig/quickassist/Makefile
-+++ src/quickassist/Makefile
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Mark Abe <github@mab.wien>
+Date: Sat, 12 Sep 2026 00:00:00 +0200
+Subject: [PATCH] cmn user drop clean prereq
+
+--- a/quickassist/Makefile
++++ b/quickassist/Makefile
 @@ -129,7 +129,7 @@ install_scripts:
  #
  

@@ -1,7 +1,10 @@
-Index: src/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_drv.c
-===================================================================
---- src.orig/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_drv.c
-+++ src/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_drv.c
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Mark Abe <github@mab.wien>
+Date: Sat, 12 Sep 2026 00:00:00 +0200
+Subject: [PATCH] adf drv cpuinfo dma mask
+
+--- a/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_drv.c
++++ b/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_drv.c
 @@ -320,9 +320,9 @@ static int adf_get_dev_node_id(struct pc
  
          /* if there is only one physical processor don't need

@@ -1,7 +1,10 @@
-Index: src/quickassist/lookaside/access_layer/src/common/ctrl/sal_qat_ctrl.c
-===================================================================
---- src.orig/quickassist/lookaside/access_layer/src/common/ctrl/sal_qat_ctrl.c
-+++ src/quickassist/lookaside/access_layer/src/common/ctrl/sal_qat_ctrl.c
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Mark Abe <github@mab.wien>
+Date: Sat, 12 Sep 2026 00:00:00 +0200
+Subject: [PATCH] lac qatctrl clean static
+
+--- a/quickassist/lookaside/access_layer/src/common/ctrl/sal_qat_ctrl.c
++++ b/quickassist/lookaside/access_layer/src/common/ctrl/sal_qat_ctrl.c
 @@ -436,7 +436,7 @@ STATIC CpaStatus SalCtrl_ValidateService
  /*
   * Free all memory allocated for the QAT instance

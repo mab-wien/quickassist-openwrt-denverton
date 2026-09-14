@@ -1,7 +1,10 @@
-Index: src/quickassist/adf/accel_mgr/src/adf_cfg.c
-===================================================================
---- src.orig/quickassist/adf/accel_mgr/src/adf_cfg.c
-+++ src/quickassist/adf/accel_mgr/src/adf_cfg.c
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Mark Abe <github@mab.wien>
+Date: Sat, 12 Sep 2026 00:00:00 +0200
+Subject: [PATCH] intel kernel v3 to v4
+
+--- a/quickassist/adf/accel_mgr/src/adf_cfg.c
++++ b/quickassist/adf/accel_mgr/src/adf_cfg.c
 @@ -545,9 +545,10 @@ CpaStatus adf_cfgAddKeyValueParam(icp_ac
      }
      else if(ADF_HEX == type)
@@ -16,10 +19,8 @@ Index: src/quickassist/adf/accel_mgr/src/adf_cfg.c
      }
      else
      {
-Index: src/quickassist/adf/accelengine/src/adf_ae.c
-===================================================================
---- src.orig/quickassist/adf/accelengine/src/adf_ae.c
-+++ src/quickassist/adf/accelengine/src/adf_ae.c
+--- a/quickassist/adf/accelengine/src/adf_ae.c
++++ b/quickassist/adf/accelengine/src/adf_ae.c
 @@ -222,6 +222,7 @@ CpaStatus adf_aeFwLoad(icp_accel_dev_t *
      /* Get the UoF FW and Map the memory to the AEs */
      status = adf_aefwGetFirmware(pAccelDev, ADF_FW_UOF_TYPE, &addr, &size);
@@ -28,10 +29,8 @@ Index: src/quickassist/adf/accelengine/src/adf_ae.c
      /* load ucode for patching, ucode_map */
      status = adf_aeUcodeMap(pAccelDev, addr, size);
      if (CPA_STATUS_SUCCESS != status)
-Index: src/quickassist/adf/accelengine/src/adf_ae_fw.c
-===================================================================
---- src.orig/quickassist/adf/accelengine/src/adf_ae_fw.c
-+++ src/quickassist/adf/accelengine/src/adf_ae_fw.c
+--- a/quickassist/adf/accelengine/src/adf_ae_fw.c
++++ b/quickassist/adf/accelengine/src/adf_ae_fw.c
 @@ -147,7 +147,6 @@ CpaStatus adf_aefwLoadFirmware(icp_accel
          return CPA_STATUS_FAIL;
      }
@@ -56,10 +55,8 @@ Index: src/quickassist/adf/accelengine/src/adf_ae_fw.c
              status_size = icp_adf_cfgGetParamValue(pAccelDev, INTERNAL_SEC,
                                    ICP_CFG_MMP_SIZE_BYTES_KEY, config_value);
              *pSize = (Cpa32U)ICP_STRTOUL(config_value, NULL, ADF_CFG_BASE_DEC);
-Index: src/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_drv.c
-===================================================================
---- src.orig/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_drv.c
-+++ src/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_drv.c
+--- a/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_drv.c
++++ b/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_drv.c
 @@ -911,7 +911,7 @@ int adf_restore_dev(icp_accel_dev_t *acc
                  ADF_ERROR("Can not issue secondary bus reset\n");
                  ADF_ERROR("Trying FLR\n");
@@ -69,10 +66,8 @@ Index: src/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_drv.c
                  if (ret) {
                          ADF_ERROR("Could not reset device\n");
                          return ret;
-Index: src/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_isr.c
-===================================================================
---- src.orig/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_isr.c
-+++ src/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_isr.c
+--- a/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_isr.c
++++ b/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_isr.c
 @@ -214,7 +214,7 @@ STATIC int adf_enable_msix(icp_accel_dev
                 (hw_data->msix.aeVectorStart - hw_data->msix.banksVectorNum);
          }
@@ -82,10 +77,8 @@ Index: src/quickassist/adf/drivers/ACCELDEV/linux/src/adf_acceldev_isr.c
                                 pci_dev_info->msixEntries.value,
                                 msix_num_entries);
          if (SUCCESS != stat){
-Index: src/quickassist/adf/drivers/common/linux/src/adf_dev_csr.c
-===================================================================
---- src.orig/quickassist/adf/drivers/common/linux/src/adf_dev_csr.c
-+++ src/quickassist/adf/drivers/common/linux/src/adf_dev_csr.c
+--- a/quickassist/adf/drivers/common/linux/src/adf_dev_csr.c
++++ b/quickassist/adf/drivers/common/linux/src/adf_dev_csr.c
 @@ -80,6 +80,7 @@
  #include "adf_dev_csr.h"
  #include "adf_platform.h"
@@ -94,10 +87,8 @@ Index: src/quickassist/adf/drivers/common/linux/src/adf_dev_csr.c
  
  #define ADF_DEV_CSR_NAME            ("icp_dev_csr")
  #define ADF_DEV_CSR_MAX_MINOR       (255)
-Index: src/quickassist/adf/drivers/common/linux/src/adf_dev_ring.c
-===================================================================
---- src.orig/quickassist/adf/drivers/common/linux/src/adf_dev_ring.c
-+++ src/quickassist/adf/drivers/common/linux/src/adf_dev_ring.c
+--- a/quickassist/adf/drivers/common/linux/src/adf_dev_ring.c
++++ b/quickassist/adf/drivers/common/linux/src/adf_dev_ring.c
 @@ -87,6 +87,7 @@
  #include "icp_adf_init.h"
  #include "icp_adf_cfg.h"
@@ -106,10 +97,8 @@ Index: src/quickassist/adf/drivers/common/linux/src/adf_dev_ring.c
  
  #define ADF_DEV_RING_NAME            ("icp_dev_ring")
  #define ADF_DEV_RING_MAX_MINOR       (255)
-Index: src/quickassist/adf/drivers/common/linux/src/adf_gige_wd_drv.c
-===================================================================
---- src.orig/quickassist/adf/drivers/common/linux/src/adf_gige_wd_drv.c
-+++ src/quickassist/adf/drivers/common/linux/src/adf_gige_wd_drv.c
+--- a/quickassist/adf/drivers/common/linux/src/adf_gige_wd_drv.c
++++ b/quickassist/adf/drivers/common/linux/src/adf_gige_wd_drv.c
 @@ -76,6 +76,8 @@
  #include "adf_platform.h"
  #include <linux/mutex.h>
@@ -119,10 +108,8 @@ Index: src/quickassist/adf/drivers/common/linux/src/adf_gige_wd_drv.c
  /* Character Device Driver Name */
  #define DEVICE_NAME                     "icp_adf_gige_wd"
  #define COMPLETION_TIME                 5000
-Index: src/quickassist/adf/drivers/common/linux/src/adf_proc_debug.c
-===================================================================
---- src.orig/quickassist/adf/drivers/common/linux/src/adf_proc_debug.c
-+++ src/quickassist/adf/drivers/common/linux/src/adf_proc_debug.c
+--- a/quickassist/adf/drivers/common/linux/src/adf_proc_debug.c
++++ b/quickassist/adf/drivers/common/linux/src/adf_proc_debug.c
 @@ -132,17 +132,13 @@ static int adf_debug_show(struct seq_fil
  {
          debug_file_info_t* file_info = sfile->private;
@@ -147,10 +134,8 @@ Index: src/quickassist/adf/drivers/common/linux/src/adf_proc_debug.c
          return 0;
  }
  
-Index: src/quickassist/adf/include/icp_adf_transport_dp.h
-===================================================================
---- src.orig/quickassist/adf/include/icp_adf_transport_dp.h
-+++ src/quickassist/adf/include/icp_adf_transport_dp.h
+--- a/quickassist/adf/include/icp_adf_transport_dp.h
++++ b/quickassist/adf/include/icp_adf_transport_dp.h
 @@ -79,7 +79,7 @@
   * Data plain support function - returns the pointer to next message on the ring
   * or NULL if there is not enough space.
@@ -208,10 +193,8 @@ Index: src/quickassist/adf/include/icp_adf_transport_dp.h
 +CpaBoolean icp_adf_queueDataToSend(icp_comms_trans_handle trans_hnd);
  
  #endif /* ICP_ADF_TRANSPORT_DP_H */
-Index: src/quickassist/adf/include/icp_platform_linux.h
-===================================================================
---- src.orig/quickassist/adf/include/icp_platform_linux.h
-+++ src/quickassist/adf/include/icp_platform_linux.h
+--- a/quickassist/adf/include/icp_platform_linux.h
++++ b/quickassist/adf/include/icp_platform_linux.h
 @@ -90,7 +90,7 @@
  
  #include <linux/fs.h>
@@ -221,10 +204,8 @@ Index: src/quickassist/adf/include/icp_platform_linux.h
  
  #include "Osal.h"
  
-Index: src/quickassist/adf/user/user_proxy/src/adf_user_ETring_mgr_dp.c
-===================================================================
---- src.orig/quickassist/adf/user/user_proxy/src/adf_user_ETring_mgr_dp.c
-+++ src/quickassist/adf/user/user_proxy/src/adf_user_ETring_mgr_dp.c
+--- a/quickassist/adf/user/user_proxy/src/adf_user_ETring_mgr_dp.c
++++ b/quickassist/adf/user/user_proxy/src/adf_user_ETring_mgr_dp.c
 @@ -84,7 +84,7 @@
   * Data plain support function - returns the pointer to next message on the ring
   * or NULL if there is not enough space.
@@ -288,10 +269,8 @@ Index: src/quickassist/adf/user/user_proxy/src/adf_user_ETring_mgr_dp.c
  {
      adf_dev_ring_handle_t *ringData = (adf_dev_ring_handle_t *)trans_hnd;
      icp_accel_dev_t *accel_dev = (icp_accel_dev_t*) ringData->accel_dev;
-Index: src/quickassist/build_system/build_files/OS/linux_2.6_kernel_space_rules.mk
-===================================================================
---- src.orig/quickassist/build_system/build_files/OS/linux_2.6_kernel_space_rules.mk
-+++ src/quickassist/build_system/build_files/OS/linux_2.6_kernel_space_rules.mk
+--- a/quickassist/build_system/build_files/OS/linux_2.6_kernel_space_rules.mk
++++ b/quickassist/build_system/build_files/OS/linux_2.6_kernel_space_rules.mk
 @@ -73,15 +73,15 @@ endif
  $(LIB_STATIC): dirs
  	@echo 'Creating static library ${LIB_STATIC}'; \
@@ -311,10 +290,8 @@ Index: src/quickassist/build_system/build_files/OS/linux_2.6_kernel_space_rules.
  $(MODULENAME): dirs
  	@echo 'Creating kernel module'; \
  	$(MAKE) -C $(KERNEL_SOURCE_ROOT)/ M=$(PWD); \
-Index: src/quickassist/lookaside/access_layer/src/sample_code/fips/cpa_fips_sample.h
-===================================================================
---- src.orig/quickassist/lookaside/access_layer/src/sample_code/fips/cpa_fips_sample.h
-+++ src/quickassist/lookaside/access_layer/src/sample_code/fips/cpa_fips_sample.h
+--- a/quickassist/lookaside/access_layer/src/sample_code/fips/cpa_fips_sample.h
++++ b/quickassist/lookaside/access_layer/src/sample_code/fips/cpa_fips_sample.h
 @@ -109,7 +109,7 @@ extern "C"
  #include <linux/string.h>
  #include <linux/ctype.h>
@@ -324,10 +301,8 @@ Index: src/quickassist/lookaside/access_layer/src/sample_code/fips/cpa_fips_samp
  #else /*KERNEL_SPACE*/
  #include <string.h>
  #include <sched.h>
-Index: src/quickassist/lookaside/access_layer/src/sample_code/performance/qae/linux/kernel_space/qae_mem_drv.c
-===================================================================
---- src.orig/quickassist/lookaside/access_layer/src/sample_code/performance/qae/linux/kernel_space/qae_mem_drv.c
-+++ src/quickassist/lookaside/access_layer/src/sample_code/performance/qae/linux/kernel_space/qae_mem_drv.c
+--- a/quickassist/lookaside/access_layer/src/sample_code/performance/qae/linux/kernel_space/qae_mem_drv.c
++++ b/quickassist/lookaside/access_layer/src/sample_code/performance/qae/linux/kernel_space/qae_mem_drv.c
 @@ -85,7 +85,7 @@
  #include <linux/slab.h>
  
@@ -337,10 +312,8 @@ Index: src/quickassist/lookaside/access_layer/src/sample_code/performance/qae/li
  #include <linux/string.h>
  #include <asm/io.h>
  
-Index: src/quickassist/utilities/downloader/Target_CoreLibs/halAe/icp_firml_interface.c
-===================================================================
---- src.orig/quickassist/utilities/downloader/Target_CoreLibs/halAe/icp_firml_interface.c
-+++ src/quickassist/utilities/downloader/Target_CoreLibs/halAe/icp_firml_interface.c
+--- a/quickassist/utilities/downloader/Target_CoreLibs/halAe/icp_firml_interface.c
++++ b/quickassist/utilities/downloader/Target_CoreLibs/halAe/icp_firml_interface.c
 @@ -185,7 +185,7 @@ icp_FirmLoader_MapMofAddr(void *handle,
      int status = ICP_FIRMLOADER_SUCCESS;
          
@@ -350,10 +323,8 @@ Index: src/quickassist/utilities/downloader/Target_CoreLibs/halAe/icp_firml_inte
      status = UcLo_MapMofAddr(myHandle, filePtr, fileSize, 
                               uofName, (char **)uofPtr, uofSize);
  
-Index: src/quickassist/utilities/downloader/Target_CoreLibs/uclo/uclo_mof.c
-===================================================================
---- src.orig/quickassist/utilities/downloader/Target_CoreLibs/uclo/uclo_mof.c
-+++ src/quickassist/utilities/downloader/Target_CoreLibs/uclo/uclo_mof.c
+--- a/quickassist/utilities/downloader/Target_CoreLibs/uclo/uclo_mof.c
++++ b/quickassist/utilities/downloader/Target_CoreLibs/uclo/uclo_mof.c
 @@ -582,6 +582,7 @@ UcLo_MapMofAddr (icp_firml_handle_t *han
      /* UOF_FID (0xc6c2) for uof object 
       * SUOF_FID for suof object
@@ -370,10 +341,8 @@ Index: src/quickassist/utilities/downloader/Target_CoreLibs/uclo/uclo_mof.c
          return (UCLO_BADOBJ);                 
      }
  
-Index: src/quickassist/utilities/osal/src/linux/kernel_space/OsalUsrKrlProxy.c
-===================================================================
---- src.orig/quickassist/utilities/osal/src/linux/kernel_space/OsalUsrKrlProxy.c
-+++ src/quickassist/utilities/osal/src/linux/kernel_space/OsalUsrKrlProxy.c
+--- a/quickassist/utilities/osal/src/linux/kernel_space/OsalUsrKrlProxy.c
++++ b/quickassist/utilities/osal/src/linux/kernel_space/OsalUsrKrlProxy.c
 @@ -45,7 +45,7 @@
  #include <linux/mm.h>
  #include <linux/slab.h>
@@ -383,10 +352,8 @@ Index: src/quickassist/utilities/osal/src/linux/kernel_space/OsalUsrKrlProxy.c
  #include <linux/string.h>
  #include <asm/io.h>
  
-Index: src/quickassist/utilities/osal/src/linux/user_space/OsalCryptoInterface.c
-===================================================================
---- src.orig/quickassist/utilities/osal/src/linux/user_space/OsalCryptoInterface.c
-+++ src/quickassist/utilities/osal/src/linux/user_space/OsalCryptoInterface.c
+--- a/quickassist/utilities/osal/src/linux/user_space/OsalCryptoInterface.c
++++ b/quickassist/utilities/osal/src/linux/user_space/OsalCryptoInterface.c
 @@ -78,7 +78,7 @@ OSAL_STATUS
  osalHashSHA1(UINT8 *in, UINT8 *out)
  {

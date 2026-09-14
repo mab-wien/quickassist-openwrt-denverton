@@ -1,7 +1,10 @@
-Index: src/quickassist/adf/accel_mgr/src/adf_cfg.c
-===================================================================
---- src.orig/quickassist/adf/accel_mgr/src/adf_cfg.c
-+++ src/quickassist/adf/accel_mgr/src/adf_cfg.c
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Mark Abe <github@mab.wien>
+Date: Sat, 12 Sep 2026 00:00:00 +0200
+Subject: [PATCH] adf accelmgr cfg static
+
+--- a/quickassist/adf/accel_mgr/src/adf_cfg.c
++++ b/quickassist/adf/accel_mgr/src/adf_cfg.c
 @@ -314,7 +314,7 @@ void adf_cfgSectionDel(adf_cfg_section_t
   * adf_cfgKeyValueList
   * List all key-value parameters from the key-value table

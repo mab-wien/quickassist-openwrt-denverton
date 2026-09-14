@@ -1,7 +1,10 @@
-Index: src/quickassist/lookaside/access_layer/src/common/crypto/asym/diffie_hellman/lac_dh_interface_check.c
-===================================================================
---- src.orig/quickassist/lookaside/access_layer/src/common/crypto/asym/diffie_hellman/lac_dh_interface_check.c
-+++ src/quickassist/lookaside/access_layer/src/common/crypto/asym/diffie_hellman/lac_dh_interface_check.c
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Mark Abe <github@mab.wien>
+Date: Sat, 12 Sep 2026 00:00:00 +0200
+Subject: [PATCH] lac dh interface check include
+
+--- a/quickassist/lookaside/access_layer/src/common/crypto/asym/diffie_hellman/lac_dh_interface_check.c
++++ b/quickassist/lookaside/access_layer/src/common/crypto/asym/diffie_hellman/lac_dh_interface_check.c
 @@ -84,6 +84,7 @@
  #include "icp_qat_fw_pke.h"
  #include "icp_qat_fw_mmp.h"

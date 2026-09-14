@@ -1,7 +1,10 @@
-Index: src/quickassist/lookaside/access_layer/src/common/crypto/sym/drbg/lac_sym_drbg_general.c
-===================================================================
---- src.orig/quickassist/lookaside/access_layer/src/common/crypto/sym/drbg/lac_sym_drbg_general.c
-+++ src/quickassist/lookaside/access_layer/src/common/crypto/sym/drbg/lac_sym_drbg_general.c
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Mark Abe <github@mab.wien>
+Date: Sat, 12 Sep 2026 00:00:00 +0200
+Subject: [PATCH] lac drbg general vla
+
+--- a/quickassist/lookaside/access_layer/src/common/crypto/sym/drbg/lac_sym_drbg_general.c
++++ b/quickassist/lookaside/access_layer/src/common/crypto/sym/drbg/lac_sym_drbg_general.c
 @@ -101,6 +101,7 @@
  #include "lac_sal_types_crypto.h"
  #include "sal_statistics.h"

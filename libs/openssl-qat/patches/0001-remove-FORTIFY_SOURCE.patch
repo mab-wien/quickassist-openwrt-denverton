@@ -1,7 +1,10 @@
-Index: src/configure.ac
-===================================================================
---- src.orig/configure.ac
-+++ src/configure.ac
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Mark Abe <github@mab.wien>
+Date: Sat, 12 Sep 2026 00:00:00 +0200
+Subject: [PATCH] remove FORTIFY_SOURCE
+
+--- a/configure.ac
++++ b/configure.ac
 @@ -554,13 +554,13 @@ case "$host_os" in
  *linux*)
    if test "`cc --version | head -1 | awk '{print $3>=4.9}' 2>/dev/null`" = "1"
