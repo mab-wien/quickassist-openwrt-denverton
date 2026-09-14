@@ -111,12 +111,21 @@ MAKE_VARS += \
 # leftover from an OpenSSL 1.1-era assumption and is never searched by an
 # OpenSSL 3.x build, silently breaking ssl_engine qatengine (nginx),
 # --engine qatengine (OpenVPN) and similar at runtime.
+#
+# QAT_Engine also defaults to ADF config section name "SHIM"
+# (qat_config_section_name in e_qat.c), which doesn't match the "[SSL]"
+# section our own driver config ships (c2xxx_qa_dev0*.conf /
+# c3xxx_qa_dev0*.conf). Without SET_CONFIGURATION_SECTION_NAME pointing
+# at the right section, cpaCyGetNumInstances() finds no instances and
+# the engine silently reports "[ unavailable ]" - ship a ready-to-use
+# openssl.cnf snippet so callers don't have to discover this themselves.
 define Package/openssl-qat/install
 	$(INSTALL_DIR) $(1)/usr/lib/engines-3
 	$(INSTALL_DIR) $(1)/usr/share/quickassist/QAT_Engine/config
 	$(CP) $(PKG_BUILD_DIR)/.libs/qatengine.so $(1)/usr/lib/engines-3
 	$(CP) $(PKG_BUILD_DIR)/qatengine.la $(1)/usr/lib/engines-3
 	$(CP) $(PKG_BUILD_DIR)/qat/config/c3xxx $(1)/usr/share/quickassist/QAT_Engine/config
+	$(CP) ./files/qatengine.cnf.example $(1)/usr/share/quickassist/QAT_Engine/config
 endef
 
 $(eval $(call BuildPackage,openssl-qat))
