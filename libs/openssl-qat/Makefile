@@ -30,6 +30,7 @@ define Package/openssl-qat
   URL:=https://github.com/intel/QAT_Engine.git
   DEPENDS:= \
 	@TARGET_x86_64 \
+	@(QAT_C2XXX||QAT_C3XXX) \
 	+libopenssl \
 	+(TARGET_x86_64&&QAT_C2XXX):quickassist-c2xxx \
 	+(TARGET_x86_64&&QAT_C3XXX):quickassist-c3xxx
